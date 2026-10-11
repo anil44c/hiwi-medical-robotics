@@ -37,7 +37,18 @@ Avoid editing the same section simultaneously. GitHub's web editor can be used f
 
 ## Publishing
 
-This repository contains the portable site files. Changes here do **not** automatically update the existing ChatGPT-hosted site. No deployment workflow is configured. Publish the reviewed files separately to the selected static web host, or ask the project owner to update the current hosted site.
+GitHub Pages is the intended automatic publishing target. One-time owner setup is still required:
+
+1. Set repository visibility to Public for GitHub Free.
+2. Open Settings > Pages.
+3. Choose Deploy from a branch, branch main, folder / (root), then Save.
+4. Wait for the Pages deployment to succeed and use the URL shown in Settings > Pages.
+
+Expected URL after activation: https://anil44c.github.io/hiwi-medical-robotics/
+
+Once Pages is enabled, changes pushed or merged into main will automatically publish to that URL. The .nojekyll file tells Pages to serve this plain HTML/CSS/JavaScript site without Jekyll processing. Check the Actions tab if publishing fails.
+
+The old ChatGPT-hosted URL is a separate deployment and does not automatically receive these changes.
 
 ## Editing notes
 
