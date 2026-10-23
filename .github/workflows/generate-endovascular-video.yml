@@ -9,6 +9,7 @@ permissions:
   contents: write
 jobs:
   build-video:
+    if: ${{ !contains(github.event.head_commit.message, 'Add generated endovascular explainer video') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
