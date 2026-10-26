@@ -24,7 +24,7 @@ let lang='en';try{const saved=localStorage.getItem('hiwi-language');lang=saved==
 const t=s=>lang==='de'?(translations[s]||s):lang==='tr'?(translationsTR[s]||s):s;
 const homeHTML=document.querySelector('#home').innerHTML,footerHTML=document.querySelector('footer').innerHTML;
 function translateDOM(root){if(lang==='en')return;const dict=lang==='tr'?translationsTR:translations;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const key=n.textContent.trim();if(dict[key])n.textContent=n.textContent.replace(key,dict[key])}root.querySelectorAll('[aria-label]').forEach(el=>el.setAttribute('aria-label',t(el.getAttribute('aria-label'))))}
-const svg=i=>`<svg viewBox="0 0 290 185" role="img" aria-label="${data[i].name}">${drawings[i]}</svg>`;
+const svg=i=>`<svg viewBox="0 0 290 185" role="img" aria-label="${data[i].name}">${drawings[[0,2,3,4,5][i]]}</svg>`;
 let checks={};try{checks=JSON.parse(sessionStorage.getItem('hiwi-steps')||'{}')}catch{}if(!checks||typeof checks!=='object')checks={};
 const parts=[
 {color:'#8b70bc',x:50,y:17,en:['Controller','The robot’s “brain”','The controller follows a program and uses information from sensors to decide what happens next. It does not think like a person.','If a sensor detects an obstacle, the program can tell the robot to stop.'],de:['Steuerung','Das „Gehirn“ des Roboters','Die Steuerung folgt einem Programm. Sie nutzt Informationen der Sensoren, um die nächste Aktion zu bestimmen. Sie denkt nicht wie ein Mensch.','Erkennt ein Sensor ein Hindernis, kann das Programm den Roboter anhalten.']},
