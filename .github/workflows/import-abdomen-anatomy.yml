@@ -1,0 +1,44 @@
+name: Import abdominal anatomy illustration
+on:
+  push:
+    paths:
+      - '.github/workflows/import-abdomen-anatomy.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download and optimize the anatomy illustration
+        env:
+          SOURCE_URL: 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/155d2d83-f840-49f9-abcb-8a6fc0f7ed75.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjllMDYyNGJiY2JiYzQ1YiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MzQ1NzQ4M30.jmvaLCGCdH1RfkXM52Edlh2Ms3nChnkkbJejkx5NVgo'
+        run: |
+          python -m pip install --quiet Pillow
+          python - <<'PY'
+          import os, urllib.request
+          from io import BytesIO
+          from pathlib import Path
+          from PIL import Image
+          request = urllib.request.Request(os.environ["SOURCE_URL"], headers={"User-Agent": "Mozilla/5.0"})
+          with urllib.request.urlopen(request, timeout=40) as response:
+              source = response.read()
+          image = Image.open(BytesIO(source)).convert("RGB")
+          image.thumbnail((900, 1200))
+          dest = Path("assets/abdomen-anatomy.webp")
+          dest.parent.mkdir(parents=True, exist_ok=True)
+          image.save(dest, "WEBP", quality=82, method=6)
+          print(f"Created {dest} ({dest.stat().st_size} bytes)")
+          PY
+      - name: Commit illustration to website
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/abdomen-anatomy.webp
+          git diff --cached --quiet || (git commit -m "Add realistic abdomen anatomy illustration" && git push)
