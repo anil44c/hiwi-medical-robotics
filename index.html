@@ -71,55 +71,38 @@ function mountCatheterFilm(){const player=document.getElementById('catheter-film
 
 
 function educationFilmHTML(kind){
-const isLap=kind==='lap',id=isLap?'laparoscopy':'biopsy',de=lang==='de';
-const title=isLap?(de?'Laparoskopie verstehen':'Understanding laparoscopy'):(de?'Was passiert bei einer Biopsie?':'How does a biopsy work?');
-const desc=isLap?(de?'Ein Einblick in die Bauchspiegelung – von Kamera und Trokaren bis zu unserem Trainingsmodell.':'Explore keyhole surgery, from trocars and camera views to our hands-on training box.'):(de?'Entdecke, wie eine Gewebeprobe entnommen und im Labor untersucht wird.':'Learn how tissue samples are collected and examined in a laboratory.');
-return '<section class="story-video education-film" aria-labelledby="'+id+'-film-title"><div class="story-video-head"><div><div class="story-kicker">'+(de?'MEDIZINISCHE ANIMATION':'MEDICAL ANIMATION')+'</div><h2 id="'+id+'-film-title">'+title+'</h2><p>'+desc+'</p></div><span class="tag">'+(isLap?'1:52':'2:01')+' · '+(de?'Deutscher Ton':'German audio')+'</span></div><div class="story-video-frame"><video id="'+id+'-film-player" controls playsinline preload="metadata" aria-label="'+title+'"><source src="assets/'+id+'-final.mp4" type="video/mp4"><track kind="subtitles" src="assets/'+id+'-de.vtt" srclang="de" label="Deutsch"><track kind="subtitles" src="assets/'+id+'-en.vtt" srclang="en" label="English">'+(de?'Dein Browser unterstützt dieses Video nicht.':'Your browser does not support this video.')+'</video></div><p class="education-film-error" id="'+id+'-film-error" hidden role="status"></p><div class="education-caption-controls"><label for="'+id+'-subtitle-choice">'+(de?'Untertitel':'Subtitles')+'</label><select id="'+id+'-subtitle-choice" aria-label="'+(de?'Untertitelsprache':'Subtitle language')+'"><option value="off">'+(de?'Aus':'Off')+'</option><option value="de">Deutsch</option><option value="en">English</option></select><span class="education-audio-note">'+(de?'Ton: Deutsch':'Audio: German')+'</span></div></section>';
+ const isLap=kind==='lap',id=isLap?'laparoscopy':'biopsy',de=lang==='de';
+ const title=isLap?(de?'Laparoskopie verstehen':'Understanding laparoscopy'):(de?'Was passiert bei einer Biopsie?':'How does a biopsy work?');
+ const desc=isLap?(de?'Ein Einblick in die Bauchspiegelung – von Kamera und Trokaren bis zu unserem Trainingsmodell.':'Explore keyhole surgery, from trocars and camera views to our hands-on training box.'):(de?'Entdecke, wie eine Gewebeprobe entnommen und im Labor untersucht wird.':'Learn how tissue samples are collected and examined in a laboratory.');
+ // Laparoscopy keeps its already-working WebVTT controls. The biopsy MP4
+ // contains two IN-BAND mov_text subtitle streams (eng, deu), so adding
+ // WebVTT <track> elements would create duplicate, unsynchronised controls.
+ const externalTracks=isLap?'<track kind="subtitles" src="assets/laparoscopy-de.vtt" srclang="de" label="Deutsch"><track kind="subtitles" src="assets/laparoscopy-en.vtt" srclang="en" label="English">':'';
+ const captionControls=isLap
+   ?'<div class="education-caption-controls"><label for="laparoscopy-subtitle-choice">'+(de?'Untertitel':'Subtitles')+'</label><select id="laparoscopy-subtitle-choice" aria-label="'+(de?'Untertitelsprache':'Subtitle language')+'"><option value="off">'+(de?'Aus':'Off')+'</option><option value="de">Deutsch</option><option value="en">English</option></select><span class="education-audio-note">'+(de?'Ton: Deutsch':'Audio: German')+'</span></div>'
+   :'<div class="education-caption-controls education-native-caption-help"><span>'+(de?'Untertitel über CC im Video auswählen: Aus, Deutsch oder English – auch im Vollbild.':'Choose subtitles using the video CC menu: Off, Deutsch or English – also in fullscreen.')+'</span><span class="education-audio-note">'+(de?'Ton: Deutsch':'Audio: German')+'</span></div>';
+ return '<section class="story-video education-film" aria-labelledby="'+id+'-film-title"><div class="story-video-head"><div><div class="story-kicker">'+(de?'MEDIZINISCHE ANIMATION':'MEDICAL ANIMATION')+'</div><h2 id="'+id+'-film-title">'+title+'</h2><p>'+desc+'</p></div><span class="tag">'+(isLap?'1:52':'2:01')+' · '+(de?'Deutscher Ton':'German audio')+'</span></div><div class="story-video-frame"><video id="'+id+'-film-player" controls playsinline preload="metadata" aria-label="'+title+'"><source src="assets/'+id+'-final.mp4" type="video/mp4">'+externalTracks+(de?'Dein Browser unterstützt dieses Video nicht.':'Your browser does not support this video.')+'</video></div><p class="education-film-error" id="'+id+'-film-error" hidden role="status"></p>'+captionControls+'</section>';
 }
-
 function mountEducationFilm(kind){
-  const id=kind==='lap'?'laparoscopy':'biopsy';
-  const video=document.getElementById(id+'-film-player');
-  const picker=document.getElementById(id+'-subtitle-choice');
-  const error=document.getElementById(id+'-film-error');
-  if(!video||!picker)return;
-
-  const missing=()=>{
-    if(!error)return;
-    error.hidden=false;
-    error.textContent=lang==='de'?'Die Videodatei ist nicht erreichbar.':'The video file cannot be loaded.';
-  };
-  video.addEventListener('error',missing);
-  const source=video.querySelector('source');
-  if(source)source.addEventListener('error',missing);
-
-  // Use native HTML video TextTracks ONLY, including in fullscreen.
-  // MP4 files also contain subtitle streams; disable every existing
-  // track before showing exactly one selected external WebVTT track.
-  const choose=language=>{
-    const requested=language==='de'||language==='en'?language:'off';
-    const trackElements=Array.from(video.querySelectorAll('track[kind="subtitles"]'));
-    const selectedElement=trackElements.find(el=>el.srclang===requested);
-    const selectedTrack=selectedElement?selectedElement.track:null;
-
-    for(let i=0;i<video.textTracks.length;i++){
-      video.textTracks[i].mode='disabled';
-    }
-    if(selectedTrack)selectedTrack.mode='showing';
-    picker.value=requested;
-  };
-  choose('off');
-  picker.addEventListener('change',()=>choose(picker.value));
-
-  // If the browser's native CC menu is used, keep our language picker
-  // synchronized without creating a second subtitle overlay.
-  if(video.textTracks&&typeof video.textTracks.addEventListener==='function'){
-    video.textTracks.addEventListener('change',()=>{
-      const active=Array.from(video.textTracks).find(track=>track.mode==='showing');
-      const language=active?(active.language||'').toLowerCase():'';
-      picker.value=/^(de|deu|ger)(-|$)/.test(language)?'de':/^(en|eng)(-|$)/.test(language)?'en':'off';
-    });
-  }
+ const id=kind==='lap'?'laparoscopy':'biopsy';
+ const video=document.getElementById(id+'-film-player');
+ const error=document.getElementById(id+'-film-error');
+ if(!video)return;
+ const missing=()=>{if(!error)return;error.hidden=false;error.textContent=lang==='de'?'Die Videodatei ist nicht erreichbar.':'The video file cannot be loaded.';};
+ video.addEventListener('error',missing);
+ const source=video.querySelector('source');if(source)source.addEventListener('error',missing);
+ // For Biopsy the CC menu controls the two embedded MP4 subtitles directly.
+ // Do not override video.textTracks, or the native fullscreen setting.
+ if(kind==='bio')return;
+ const picker=document.getElementById(id+'-subtitle-choice');if(!picker)return;
+ const choose=language=>{
+   const selected=language==='de'||language==='en'?language:'off';
+   for(const track of video.textTracks)track.mode='disabled';
+   const external=Array.from(video.querySelectorAll('track')).find(el=>el.srclang===selected);
+   if(external)external.track.mode='showing';
+ };
+ choose('off');picker.value='off';
+ picker.addEventListener('change',()=>choose(picker.value));
 }
 
 function vascularHTML(){const v=vascularCopy[lang]||vascularCopy.en;return `<section class="vascular-learning" aria-labelledby="vascular-learning-title"><figure><img src="assets/vascular-anatomy.webp" width="1024" height="1536" alt="${v.alt}" loading="lazy"><figcaption>${v.caption}</figcaption></figure><div class="vascular-copy"><div class="eyebrow">${lang==='de'?'HERZ & BLUTGEFÄSSE':'HEART & BLOOD VESSELS'}</div><h2 id="vascular-learning-title">${v.title}</h2><p>${v.intro}</p><dl>${v.items.map((x,i)=>`<div class="vascular-type vascular-type-${i}"><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('')}</dl><div class="vascular-inside"><h3>${v.sub}</h3><p>${v.meaning}</p><p>${v.route}</p></div><p class="vascular-sources">${v.sources}: <a href="https://www.nhlbi.nih.gov/health/heart">NHLBI · ${lang==='de'?'Herz und Kreislauf':'Heart and circulation'}</a> · <a href="https://www.nhlbi.nih.gov/health/cardiac-catheterization">${lang==='de'?'Herzkatheter':'Cardiac catheterization'}</a></p></div></section>`;}
