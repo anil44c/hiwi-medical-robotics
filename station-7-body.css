@@ -89,3 +89,15 @@
 .body-tap:nth-child(6){left:80%!important;top:65%!important}
 .body-tap:nth-child(7){left:20%!important;top:81%!important}
 @media(max-width:520px){.body-map-panel{padding:20px 6px!important}.body-tap{font-size:10px!important;min-height:32px!important;padding:5px 7px!important}.body-tap:before{width:9px}.body-silhouette{margin:15px auto!important}}
+
+.body-silhouette.reference-loaded .anatomy-photo{aspect-ratio:389 / 498!important;width:100%!important;max-width:389px;margin:auto;object-fit:contain!important}
+.body-silhouette.reference-loaded .body-tap{min-width:70px!important;min-height:42px!important;color:transparent!important;background:transparent!important;border:0!important;box-shadow:none!important;outline:none!important}
+.body-silhouette.reference-loaded .body-tap:before{display:none}
+.body-silhouette.reference-loaded .body-tap:focus-visible{outline:3px solid #e7bd50!important}
+.body-silhouette.reference-loaded .body-tap:nth-child(1){left:22%!important;top:18%!important}
+.body-silhouette.reference-loaded .body-tap:nth-child(2){left:80%!important;top:11%!important}
+.body-silhouette.reference-loaded .body-tap:nth-child(3){left:19%!important;top:41%!important}
+.body-silhouette.reference-loaded .body-tap:nth-child(4){left:83%!important;top:45%!important}
+.body-silhouette.reference-loaded .body-tap:nth-child(5){left:22%!important;top:59%!important}
+.body-silhouette.reference-loaded .body-tap:nth-child(6){left:83%!important;top:68%!important}
+.body-silhouette.reference-loaded .body-tap:nth-child(7){left:22%!important;top:87%!important}
