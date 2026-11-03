@@ -61,3 +61,11 @@
 @media(max-width:840px){.body-discovery-layout{grid-template-columns:1fr}.body-silhouette{max-width:340px}.why-choices{grid-template-columns:1fr}.why-choices button{min-height:0}.body-discovery .surgical-total{display:none!important}}
 @media(max-width:480px){.body-tap{font-size:11px;min-width:48px;min-height:42px;padding:7px}.body-robot-copy{padding:19px}.body-panel-heading{padding:18px}.eye-difference{margin:14px;padding:15px}}
 @media(prefers-reduced-motion:reduce){.body-tap,.why-choices button{transition:none!important}}
+
+/* Detailed licensed anatomical illustration in place of simplified body drawing */
+.body-silhouette{max-width:390px;min-height:490px;display:block;background:#f8faf7;border-radius:20px;overflow:visible}
+.body-silhouette .anatomy-photo{display:block;width:100%;height:auto;aspect-ratio:1258 / 1800;object-fit:contain;border-radius:18px;mix-blend-mode:multiply}
+.body-taps{z-index:2;pointer-events:none}
+.body-taps .body-tap{pointer-events:auto}
+.body-map-panel{overflow:hidden}
+@media(max-width:480px){.body-silhouette{min-height:0}.body-tap{min-width:44px}}
