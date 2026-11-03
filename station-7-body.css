@@ -62,52 +62,19 @@
 @media(max-width:480px){.body-tap{font-size:11px;min-width:48px;min-height:42px;padding:7px}.body-robot-copy{padding:19px}.body-panel-heading{padding:18px}.eye-difference{margin:14px;padding:15px}}
 @media(prefers-reduced-motion:reduce){.body-tap,.why-choices button{transition:none!important}}
 
-/* Detailed licensed anatomical illustration in place of simplified body drawing */
-.body-silhouette{max-width:390px;min-height:490px;display:block;background:#f8faf7;border-radius:20px;overflow:visible}
-.body-silhouette .anatomy-photo{display:block;width:100%;height:auto;aspect-ratio:1258 / 1800;object-fit:contain;border-radius:18px;mix-blend-mode:multiply}
-.body-taps{z-index:2;pointer-events:none}
-.body-taps .body-tap{pointer-events:auto}
-.body-map-panel{overflow:hidden}
-@media(max-width:480px){.body-silhouette{min-height:0}.body-tap{min-width:44px}}
 
-/* Station 07 anatomy: airy illustrated map with connected organ callouts */
-.body-map-panel{background:#fffaf0!important}
-.body-silhouette{max-width:450px!important;min-height:0!important;overflow:visible!important;background:linear-gradient(150deg,#fcfaf3,#eef5ec)!important;border-radius:23px;margin:24px auto!important}
-.body-silhouette .anatomy-photo{display:block;width:100%!important;height:auto!important;aspect-ratio:1/1!important;object-fit:contain!important;mix-blend-mode:multiply}
-.body-taps{position:absolute;inset:0;pointer-events:none}
-.body-tap{pointer-events:auto;background:#f9fce9!important;border:2px solid #4c8960!important;color:#234e39!important;box-shadow:0 3px 8px #143b2522!important;border-radius:99px!important;min-height:40px!important;font-weight:800!important;padding:7px 12px!important;white-space:nowrap;font-size:12px!important}
-.body-tap:hover{scale:1.05;background:#e5f4db!important}
-.body-tap.active{background:#e4edb9!important;border-color:#a5af47!important;outline:3px solid #efdd98!important}
-.body-tap:before{content:"";position:absolute;top:50%;width:18px;height:2px;background:#4c8960}
-.body-tap:nth-child(odd):before{right:100%}
-.body-tap:nth-child(even):before{left:100%}
-.body-tap:nth-child(1){left:20%!important;top:21%!important}
-.body-tap:nth-child(2){left:79%!important;top:11%!important}
-.body-tap:nth-child(3){left:18%!important;top:40%!important}
-.body-tap:nth-child(4){left:81%!important;top:43%!important}
-.body-tap:nth-child(5){left:19%!important;top:56%!important}
-.body-tap:nth-child(6){left:80%!important;top:65%!important}
-.body-tap:nth-child(7){left:20%!important;top:81%!important}
-@media(max-width:520px){.body-map-panel{padding:20px 6px!important}.body-tap{font-size:10px!important;min-height:32px!important;padding:5px 7px!important}.body-tap:before{width:9px}.body-silhouette{margin:15px auto!important}}
-
-.body-silhouette.reference-loaded .anatomy-photo{aspect-ratio:389 / 498!important;width:100%!important;max-width:389px;margin:auto;object-fit:contain!important}
-.body-silhouette.reference-loaded .body-tap{min-width:70px!important;min-height:42px!important;color:transparent!important;background:transparent!important;border:0!important;box-shadow:none!important;outline:none!important}
-.body-silhouette.reference-loaded .body-tap:before{display:none}
-.body-silhouette.reference-loaded .body-tap:focus-visible{outline:3px solid #e7bd50!important}
-.body-silhouette.reference-loaded .body-tap:nth-child(1){left:22%!important;top:18%!important}
-.body-silhouette.reference-loaded .body-tap:nth-child(2){left:80%!important;top:11%!important}
-.body-silhouette.reference-loaded .body-tap:nth-child(3){left:19%!important;top:41%!important}
-.body-silhouette.reference-loaded .body-tap:nth-child(4){left:83%!important;top:45%!important}
-.body-silhouette.reference-loaded .body-tap:nth-child(5){left:22%!important;top:59%!important}
-.body-silhouette.reference-loaded .body-tap:nth-child(6){left:83%!important;top:68%!important}
-.body-silhouette.reference-loaded .body-tap:nth-child(7){left:22%!important;top:87%!important}
-
-/* 2026-11-03: Repair invisible interaction overlay and undersized anatomy. */
-.body-map-panel .body-silhouette{position:relative!important;min-height:0!important;max-width:420px!important;aspect-ratio:390 / 515!important;background:#fffaf2!important;overflow:hidden!important}
-.body-map-panel .anatomy-photo{display:block!important;width:100%!important;height:100%!important;max-width:none!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center!important;mix-blend-mode:normal!important}
-.body-map-panel .body-taps{position:absolute!important;inset:0!important;z-index:8!important;pointer-events:none!important}
-.body-map-panel .body-tap,.body-map-panel .body-silhouette.reference-loaded .body-tap{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;color:#183d33!important;background:#fffaf0!important;border:2px solid #3b8350!important;box-shadow:0 5px 14px #102d2333!important;outline:none!important;font-size:12px!important;font-weight:800!important;min-width:70px!important;min-height:43px!important;white-space:nowrap!important;border-radius:999px!important;padding:8px 12px!important;align-items:center!important;justify-content:center!important}
-.body-map-panel .body-tap.active,.body-map-panel .body-silhouette.reference-loaded .body-tap.active{background:#e7f1ce!important;border-color:#327746!important}
-.body-map-panel .body-tap:before,.body-map-panel .body-silhouette.reference-loaded .body-tap:before{display:none!important}
-.body-map-panel .body-tap:focus-visible,.body-map-panel .body-silhouette.reference-loaded .body-tap:focus-visible{outline:3px solid #d29b36!important;outline-offset:3px!important}
-@media(max-width:520px){.body-map-panel .body-tap,.body-map-panel .body-silhouette.reference-loaded .body-tap{font-size:10px!important;min-width:56px!important;min-height:34px!important;padding:5px 7px!important}}
+/* Station 07 organ map: one coordinate system for image, labels, and leader lines */
+.body-map-panel{background:#fffaf2!important;overflow:visible!important}
+.body-map-panel .body-silhouette{position:relative!important;display:block!important;width:100%!important;max-width:450px!important;aspect-ratio:1122 / 1402!important;min-height:0!important;margin:22px auto!important;overflow:visible!important;border-radius:18px!important;background:#fff9f0!important}
+.body-map-panel .anatomy-photo{display:block!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;mix-blend-mode:normal!important;border-radius:18px!important}
+.body-map-panel .body-taps{position:absolute!important;inset:0!important;z-index:3!important;pointer-events:none!important}
+.body-map-panel .body-leaders{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.body-map-panel .body-leaders line{stroke:#4d865d;stroke-width:.55;vector-effect:non-scaling-stroke}
+.body-map-panel .body-leaders circle{fill:#e9f9e1;stroke:#4c985f;stroke-width:1;vector-effect:non-scaling-stroke}
+.body-map-panel .body-tap{position:absolute!important;transform:translate(-50%,-50%)!important;display:flex!important;align-items:center!important;justify-content:center!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;background:#fcfff4!important;color:#193e32!important;border:2px solid #45895c!important;box-shadow:0 4px 14px #264b3329!important;border-radius:999px!important;min-height:39px!important;min-width:70px!important;padding:7px 10px!important;font-size:12px!important;font-weight:800!important;white-space:nowrap!important;outline:none!important}
+.body-map-panel .body-tap:before{display:none!important}
+.body-map-panel .body-tap:hover{background:#e5f5da!important;scale:1.03}
+.body-map-panel .body-tap.active{background:#e5efc7!important;outline:3px solid #e0d18a!important}
+.body-map-panel .body-tap:focus-visible{outline:3px solid #cf9f39!important;outline-offset:2px!important}
+.body-map-panel .body-map-note{margin:12px auto!important}
+@media(max-width:480px){.body-map-panel{padding:12px 5px!important}.body-map-panel .body-tap{font-size:10px!important;min-width:54px!important;min-height:33px!important;padding:5px 7px!important}}
