@@ -1,0 +1,63 @@
+/* Station 07: distinctive interactive body experience, close to main site's palette */
+.surgical-detail .detail-title{background:transparent!important;color:var(--ink)!important;border-radius:0!important;padding:0!important;margin:35px 0!important}
+.surgical-detail .detail-title:before,.surgical-detail .detail-title:after{display:none!important}
+.surgical-detail .detail-title h1{color:var(--ink)!important;font-size:clamp(38px,5vw,60px)!important;letter-spacing:-2px!important}
+.surgical-detail .detail-title .eyebrow{color:#57785f!important}
+.surgical-detail .detail-title p{color:var(--muted)!important;font-size:16px!important}
+.surgical-detail .detail-title .share{color:var(--ink)!important;border:1px solid var(--line)!important;background:white!important;border-radius:8px!important}
+.surgical-detail .station-idea{border:0!important;border-top:1px solid var(--line)!important;border-radius:0!important;background:transparent!important;padding:20px 0!important}
+.surgical-detail .station-idea h3{color:var(--ink)!important}
+.surgical-detail .station-idea p{color:var(--muted)!important}
+.why-experiment{background:#f3f6ee;border:1px solid #d8e3d7;border-radius:22px;padding:clamp(20px,3.5vw,38px);margin:0 0 36px}
+.why-experiment h2{font:normal clamp(27px,3.5vw,39px)/1.2 Georgia,serif;color:#173d3b;margin:8px 0 12px}
+.why-experiment>p{font-size:14px;color:#567067}
+.why-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px 0}
+.why-choices button{display:flex;flex-direction:column;gap:11px;align-items:flex-start;text-align:left;min-height:166px;padding:20px;border:1px solid #d4e0d3;background:white;border-radius:16px;color:#1d473e;transition:border-color .18s,transform .18s}
+.why-choices button:hover{transform:translateY(-3px);border-color:#80a88d}
+.why-choices button.active{border:2px solid #69947a;background:#e8f0e6}
+.why-choices button span{color:#a28a52;font:25px Georgia,serif}
+.why-choices button strong{font-size:16px}
+.why-choices button small{font-size:12px;line-height:1.55;color:#60776e}
+.why-answer{background:#fff9e9;border:1px solid #ead8b1;border-radius:12px;padding:17px 20px;color:#5d4c2f;min-height:65px}
+.why-answer p{margin:7px 0 0;font-size:14px;color:#695d42}
+.why-answer span{display:block;margin-top:10px;font-size:12px;font-weight:bold}
+.body-discovery{background:linear-gradient(145deg,#eaf1e8,#f7f8f3)!important;border:1px solid #d4e2d5!important;border-radius:23px!important;padding:clamp(18px,3.5vw,39px)!important;margin:0 0 40px}
+.body-discovery .surgical-intro{border:0!important;padding:0 0 16px!important}
+.body-discovery .surgical-intro h2{font:normal clamp(30px,4vw,48px)/1.15 Georgia,serif!important;color:#173d3b!important;letter-spacing:-1.5px!important}
+.body-discovery .surgical-total{background:none!important;color:#8ba08b!important;font:76px Georgia,serif!important;box-shadow:none!important;transform:none!important;min-width:0!important;height:auto!important}
+.body-instruction{font-size:15px!important;background:#fff7e1;color:#695736!important;padding:14px 18px;border:1px solid #eddbb3;border-radius:12px}
+.body-discovery-layout{display:grid;grid-template-columns:minmax(280px,.88fr) minmax(0,1.12fr);gap:clamp(18px,3vw,30px);align-items:start}
+.body-map-panel{background:#fff;border:1px solid #dbe5dc;border-radius:20px;padding:22px 14px}
+.body-map-title{text-align:center;color:#63816c;letter-spacing:2px;font-size:11px;font-weight:800}
+.body-silhouette{position:relative;max-width:380px;margin:12px auto}
+.body-silhouette svg{width:100%;display:block;height:auto}
+.body-taps{position:absolute;inset:0}
+.body-tap{position:absolute;transform:translate(-50%,-50%);min-width:60px;min-height:45px;border:2px solid white;border-radius:999px;background:#2d6b60;color:white;box-shadow:0 6px 14px #173d3b26;padding:8px 12px;font-weight:bold;font-size:12px;white-space:nowrap;transition:background .18s,scale .18s}
+.body-tap:hover{background:#1e5147;scale:1.08}
+.body-tap.active{background:#dbbc68;color:#3b3b22;outline:3px solid #f2e5bf}
+.body-map-note{max-width:300px;margin:auto;text-align:center;font-size:12px!important;color:#74867b!important}
+.body-robot-panel{background:#fff;border:1px solid #dbe5dc;border-radius:20px;overflow:hidden;box-shadow:0 12px 30px #173d3b0b}
+.body-panel-heading{padding:22px 24px;border-bottom:1px solid #e3ebe3}
+.body-panel-heading span{color:#5a7968;font-size:11px;font-weight:800;letter-spacing:1px}
+.body-panel-heading h3{font:normal clamp(22px,2.6vw,30px)/1.2 Georgia,serif;color:#173d3b;margin:10px 0 0}
+.body-robot-photo img{display:block;width:100%;aspect-ratio:3/2;max-height:270px;object-fit:contain;background:#edf3ed}
+.body-robot-copy{padding:22px 26px}
+.body-robot-copy h3{font:normal clamp(25px,3vw,34px)/1.15 Georgia,serif;color:#173d3b;margin:12px 0}
+.body-robot-copy p{font-size:14px;line-height:1.72;color:#456158}
+.body-status{display:inline-block;border-radius:100px;background:#e6f0e2;color:#41694f;padding:7px 12px;font-size:11px;font-weight:700}
+.body-method{color:#557b5d!important;font-size:13px!important;font-weight:700}
+.eye-difference{margin:20px;padding:20px;background:#f8f4e8;border:1px solid #eaddbd;border-radius:16px}
+.eye-difference h4{font:normal 22px Georgia,serif;margin:0 0 15px;color:#594a31}
+.eye-fact{padding:10px 0;border-top:1px solid #eadfc5;display:grid;gap:5px;font-size:13px}
+.eye-fact strong{color:#345e4c}
+.eye-fact span{color:#685a43;line-height:1.5}
+.eye-selector{display:flex;gap:8px;flex-wrap:wrap;margin:0 20px 18px}
+.eye-selector button{flex:1 1 120px;background:#f1f5f0;border:1px solid #cdded0;border-radius:12px;padding:12px;font-size:12px;font-weight:700;color:#315747}
+.eye-selector button.active{background:#dce9d8;border-color:#709b77}
+.surgical-detail .robot-quiz{background:linear-gradient(135deg,#fff 60%,#f2f6e9)!important;border:2px solid #d7e4d0!important;border-radius:24px!important;box-shadow:none!important}
+.surgical-detail .robot-answer{box-shadow:none!important}
+.surgical-detail .robot-question{background:transparent!important;padding:0!important;border:0!important}
+.surgical-detail .robot-score{background:#fff1bc!important;color:#69500b!important;box-shadow:none!important}
+@media(max-width:840px){.body-discovery-layout{grid-template-columns:1fr}.body-silhouette{max-width:340px}.why-choices{grid-template-columns:1fr}.why-choices button{min-height:0}.body-discovery .surgical-total{display:none!important}}
+@media(max-width:480px){.body-tap{font-size:11px;min-width:48px;min-height:42px;padding:7px}.body-robot-copy{padding:19px}.body-panel-heading{padding:18px}.eye-difference{margin:14px;padding:15px}}
+@media(prefers-reduced-motion:reduce){.body-tap,.why-choices button{transition:none!important}}
