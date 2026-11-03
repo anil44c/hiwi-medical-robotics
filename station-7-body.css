@@ -69,3 +69,23 @@
 .body-taps .body-tap{pointer-events:auto}
 .body-map-panel{overflow:hidden}
 @media(max-width:480px){.body-silhouette{min-height:0}.body-tap{min-width:44px}}
+
+/* Station 07 anatomy: airy illustrated map with connected organ callouts */
+.body-map-panel{background:#fffaf0!important}
+.body-silhouette{max-width:450px!important;min-height:0!important;overflow:visible!important;background:linear-gradient(150deg,#fcfaf3,#eef5ec)!important;border-radius:23px;margin:24px auto!important}
+.body-silhouette .anatomy-photo{display:block;width:100%!important;height:auto!important;aspect-ratio:1/1!important;object-fit:contain!important;mix-blend-mode:multiply}
+.body-taps{position:absolute;inset:0;pointer-events:none}
+.body-tap{pointer-events:auto;background:#f9fce9!important;border:2px solid #4c8960!important;color:#234e39!important;box-shadow:0 3px 8px #143b2522!important;border-radius:99px!important;min-height:40px!important;font-weight:800!important;padding:7px 12px!important;white-space:nowrap;font-size:12px!important}
+.body-tap:hover{scale:1.05;background:#e5f4db!important}
+.body-tap.active{background:#e4edb9!important;border-color:#a5af47!important;outline:3px solid #efdd98!important}
+.body-tap:before{content:"";position:absolute;top:50%;width:18px;height:2px;background:#4c8960}
+.body-tap:nth-child(odd):before{right:100%}
+.body-tap:nth-child(even):before{left:100%}
+.body-tap:nth-child(1){left:20%!important;top:21%!important}
+.body-tap:nth-child(2){left:79%!important;top:11%!important}
+.body-tap:nth-child(3){left:18%!important;top:40%!important}
+.body-tap:nth-child(4){left:81%!important;top:43%!important}
+.body-tap:nth-child(5){left:19%!important;top:56%!important}
+.body-tap:nth-child(6){left:80%!important;top:65%!important}
+.body-tap:nth-child(7){left:20%!important;top:81%!important}
+@media(max-width:520px){.body-map-panel{padding:20px 6px!important}.body-tap{font-size:10px!important;min-height:32px!important;padding:5px 7px!important}.body-tap:before{width:9px}.body-silhouette{margin:15px auto!important}}
