@@ -175,6 +175,13 @@ function bodyRobotCard(i){
 }
 function mountBodyDiscovery(){
  const root=document.querySelector('.body-discovery');if(!root)return; const de=lang==='de';
+ const anatomyImg=root.querySelector('.anatomy-photo');
+ fetch('assets/station7-anatomy-quality.b64',{cache:'no-cache'}).then(response=>{
+  if(!response.ok)throw new Error('Anatomy image unavailable');
+  return response.text();
+ }).then(base64=>{
+  if(root.isConnected&&anatomyImg)anatomyImg.src='data:image/webp;base64,'+base64.trim();
+ }).catch(()=>{/* Keep the embedded fallback if the upgrade cannot load. */});
  function show(){
  const area=bodyAreas.find(a=>a.id===bodySelection),eye=area.id==='eye';
  root.querySelectorAll('[data-body-area]').forEach(b=>{const on=b.dataset.bodyArea===bodySelection;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
