@@ -1,0 +1,52 @@
+/* Station 05: Explorer Lab — presentation only. Content and quiz logic untouched. */
+.surgical-detail{--explorer-ink:#193454;--explorer-blue:#2675cc;--explorer-aqua:#15b4b2;--explorer-yellow:#ffcc59}
+.surgical-detail .detail-title{position:relative;overflow:hidden;border-radius:30px;padding:clamp(28px,5vw,64px)!important;margin:16px 0 28px;background:radial-gradient(circle at 88% 20%,#63dfdd 0,transparent 34%),radial-gradient(circle at 10% 100%,#4052b8 0,transparent 45%),linear-gradient(120deg,#102e59,#116a99);color:white;isolation:isolate}
+.surgical-detail .detail-title:before{content:"✦  ✧  ✦";position:absolute;right:4%;top:10%;font-size:52px;letter-spacing:28px;color:#ffdb6c;opacity:.75;pointer-events:none}
+.surgical-detail .detail-title:after{content:"";position:absolute;width:280px;height:280px;border:2px dashed #ffffff50;border-radius:50%;right:-95px;bottom:-165px;pointer-events:none}
+.surgical-detail .detail-title h1{color:white;font-size:clamp(36px,5.5vw,74px);letter-spacing:-.045em;line-height:1.04;max-width:880px;text-wrap:balance}
+.surgical-detail .detail-title .eyebrow{color:#ffe69b;font-weight:800;letter-spacing:.16em}
+.surgical-detail .detail-title p{color:#e7f8ff;font-size:clamp(16px,1.8vw,21px);line-height:1.6}
+.surgical-detail .detail-title .share{color:#133a59;background:#ffdd77;border:0;border-radius:999px;font-weight:800;padding:13px 22px}
+.surgical-detail .station-idea{background:#e8f8fa;border:2px solid #b4ebeb;border-radius:23px;padding:clamp(20px,3vw,32px);margin-bottom:28px}
+.surgical-detail .station-idea h3{color:#146879;font-size:clamp(22px,3vw,30px)}
+.surgical-detail .station-idea p{color:#23445b;line-height:1.8;font-size:16px;max-width:950px}
+.surgical-detail .surgical-collection{padding:clamp(20px,4vw,40px);background:linear-gradient(155deg,#edfaff,#f8f2ff 60%,#fff9ed);border:1px solid #d7e8f6;border-radius:30px;margin:0 0 36px}
+.surgical-detail .surgical-intro{border:0;padding:0 0 20px;display:flex;align-items:center;gap:20px}
+.surgical-detail .surgical-intro .eyebrow{color:#2b68a8;font-weight:900;letter-spacing:.13em}
+.surgical-detail .surgical-intro h2{color:var(--explorer-ink);font-size:clamp(32px,4vw,54px);letter-spacing:-.04em;line-height:1.12}
+.surgical-detail .surgical-intro p{font-size:16px;line-height:1.75;color:#38546d}
+.surgical-detail .surgical-total{background:#ffdd72;color:#674510;min-width:92px;height:92px;display:grid;place-items:center;font:800 48px/1 system-ui;border-radius:28px;transform:rotate(7deg);box-shadow:0 8px 0 #e8b34c}
+.surgical-detail .surgical-note{font-size:13px;color:#49627d}
+.surgical-detail .surgical-grid{gap:clamp(16px,2vw,26px)}
+.surgical-detail .surgical-card{border:2px solid #d8e9f5;border-radius:24px;box-shadow:0 10px 0 #dceaf4,0 18px 28px #193d6411;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.surgical-detail .surgical-card:hover{transform:translateY(-7px) rotate(-.4deg);border-color:#38b6cc;box-shadow:0 14px 0 #bdecef,0 24px 35px #193d6422}
+.surgical-detail .surgical-picture{background:linear-gradient(150deg,#e7f7fc,#f5f2ff)!important;padding:0 0 36px}
+.surgical-detail .surgical-card:nth-child(3n+2) .surgical-picture{background:linear-gradient(140deg,#fff4db,#fff8ee)!important}
+.surgical-detail .surgical-card:nth-child(3n) .surgical-picture{background:linear-gradient(140deg,#e8f9ee,#f2faff)!important}
+.surgical-detail .surgical-picture img{transition:transform .35s ease}
+.surgical-detail .surgical-card:hover img{transform:scale(1.04)}
+.surgical-detail .surgical-number{top:14px;left:14px;background:#163b68;color:white;width:46px;height:46px;border-radius:16px;font:800 18px system-ui;box-shadow:0 5px 0 #092845}
+.surgical-detail .surgical-status{font-weight:800;font-size:11px;background:#fff;box-shadow:0 2px 8px #1234;bottom:9px}
+.surgical-detail .surgical-copy{padding:clamp(18px,2.4vw,26px)}
+.surgical-detail .surgical-maker{font-size:12px;text-transform:uppercase;font-weight:800;letter-spacing:.09em;color:#317da2}
+.surgical-detail .surgical-copy h3{color:#18375f;font:800 clamp(22px,2.4vw,28px)/1.15 system-ui,sans-serif;letter-spacing:-.04em}
+.surgical-detail .surgical-copy .surgical-method{background:#f0f7ff;color:#25649c;border-radius:10px;padding:9px 12px;min-height:0;font-weight:700}
+.surgical-detail .surgical-copy p:not(.surgical-method){color:#3c526a;font-size:15px;line-height:1.7}
+.surgical-detail .robot-quiz{max-width:none;border:3px solid #69d0d5;border-radius:30px;background:linear-gradient(135deg,#e9fbff,#fffdf6 60%,#f0eaff);box-shadow:0 12px 0 #b7e9ec;padding:clamp(20px,4vw,44px)}
+.surgical-detail .robot-quiz-heading h2{color:#163b68;font-size:clamp(28px,4vw,44px)}
+.surgical-detail .robot-score{background:#ffdb6c;color:#5b430a;font-size:17px;box-shadow:0 5px 0 #e9bb43}
+.surgical-detail .robot-companion{background:#ffffffa8;border:1px solid #d0edf1;border-radius:25px;padding:18px}
+.surgical-detail .robot-speech{background:#d9f3e8;border:2px solid #addfd2;color:#164e4b}
+.surgical-detail .robot-dots span{height:12px;background:#d1e1e9}
+.surgical-detail .robot-dots .done{background:#24b59d}
+.surgical-detail .robot-dots .current{background:#f5bd40}
+.surgical-detail .robot-question{background:white;border:2px solid #d9eaf5;border-radius:23px;padding:clamp(16px,3vw,30px)}
+.surgical-detail .robot-question h3{color:#193454}
+.surgical-detail .robot-answer{border-radius:16px;border-color:#d2e4f0;min-height:65px;box-shadow:0 4px 0 #dce7ee;font-weight:600}
+.surgical-detail .robot-answer:hover:not(:disabled){background:#e9f8ff;border-color:#29a7ca;transform:translateY(-2px)}
+.surgical-detail .robot-letter{background:#dbeeff;color:#165b92}
+.surgical-detail .robot-explanation{background:#e5f8e9;border:1px solid #a6dec1}
+.surgical-detail .robot-next,.surgical-detail .robot-finish .btn{border-radius:16px;background:#166ca8;color:white;font-weight:800;padding:14px 24px}
+.surgical-detail .robot-answer:focus-visible,.surgical-detail .share:focus-visible{outline:4px solid #efb524;outline-offset:3px}
+@media(max-width:650px){.surgical-detail .detail-title{border-radius:22px;padding:28px 22px!important}.surgical-detail .surgical-collection{padding:18px;border-radius:22px}.surgical-detail .surgical-total{min-width:64px;width:64px;height:64px;font-size:30px;border-radius:18px}.surgical-detail .surgical-intro{align-items:flex-start}.surgical-detail .robot-companion{flex-direction:column;align-items:flex-start}.surgical-detail .robot-quiz{border-radius:22px}.surgical-detail .robot-question{padding:16px}}
+@media(prefers-reduced-motion:reduce){.surgical-detail .surgical-card,.surgical-detail .surgical-picture img,.surgical-detail .robot-answer{transition:none!important;transform:none!important}}
