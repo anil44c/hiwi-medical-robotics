@@ -150,13 +150,13 @@ function surgicalExplorerCard(i){
 }
 
 const bodyAreas=[
-{id:'eye',en:'Eyes',de:'Augen',ids:[2,4,8],x:70,y:16},
-{id:'brain',en:'Brain',de:'Gehirn',ids:[3],x:38,y:9},
-{id:'lung',en:'Lungs',de:'Lunge',ids:[6],x:28,y:38},
-{id:'heart',en:'Heart',de:'Herz',ids:[5],x:74,y:44},
-{id:'stomach',en:'Stomach',de:'Magen',ids:[7],x:75,y:63},
-{id:'abdomen',en:'Abdomen',de:'Bauch',ids:[0],x:24,y:71},
-{id:'joint',en:'Knee / hip',de:'Knie / Hüfte',ids:[1],x:76,y:82}
+{id:'eye',en:'Eyes',de:'Augen',ids:[2,4,8],x:73,y:22},
+{id:'brain',en:'Brain',de:'Gehirn',ids:[3],x:33,y:11},
+{id:'lung',en:'Lungs',de:'Lunge',ids:[6],x:24,y:39},
+{id:'heart',en:'Heart',de:'Herz',ids:[5],x:75,y:42},
+{id:'stomach',en:'Stomach',de:'Magen',ids:[7],x:74,y:55},
+{id:'abdomen',en:'Abdomen',de:'Bauch',ids:[0],x:25,y:61},
+{id:'joint',en:'Knee / hip',de:'Knie / Hüfte',ids:[1],x:72,y:81}
 ];
 let bodySelection='eye',eyeSelection=2,ideaSelection=null;
 const eyeDifferences=[
@@ -164,10 +164,10 @@ const eyeDifferences=[
 {index:4,en:'Surgeon and robot hold the same instrument to steady it.',de:'Mensch und Roboter halten dasselbe Instrument und stabilisieren es.'},
 {index:8,en:'Magnetic fields steer a tiny robot without a tether.',de:'Magnetfelder lenken einen winzigen Roboter ohne Verbindungskabel.'}
 ];
-const bodySilhouette=`<img class="anatomy-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Male_with_organs.png" alt="Anatomically detailed front view of the human body with internal organs, illustration by Mikael Häggström" loading="eager" referrerpolicy="no-referrer">`;
+const bodySilhouette=`<img class="anatomy-photo" src="https://3d.nih.gov/images/collections/hra/vh_m.jpg" alt="Detailed human anatomy with visible organs and skeletal structures, NIH Human Reference Atlas" loading="eager">`;
 function surgicalHTML(){
  const de=lang==='de',l=surgicalLabels[de?'de':'en'];
- return `<section class="surgical-collection body-discovery" aria-labelledby="surgical-heading"><div class="surgical-intro"><div><div class="eyebrow">${de?'STATION 07 · ROBOTER IM KÖRPER':'STATION 07 · ROBOTS IN THE BODY'}</div><h2 id="surgical-heading">${de?'Wo helfen die Roboter?':'Where do the robots help?'}</h2><p>${l.intro}</p></div><span class="surgical-total">09</span></div><p class="body-instruction">${de?'Tippe auf einen Körperbereich und entdecke die Roboter dahinter.':'Tap a body region and discover the robots that help there.'}</p><div class="body-discovery-layout"><div class="body-map-panel"><div class="body-map-title">${de?'WÄHLE EINEN KÖRPERTEIL':'CHOOSE A BODY PART'}</div><div class="body-silhouette">${bodySilhouette}<div class="body-taps">${bodyAreas.map(a=>`<button type="button" class="body-tap ${bodySelection===a.id?'active':''}" style="left:${a.x}%;top:${a.y}%" data-body-area="${a.id}" aria-pressed="${bodySelection===a.id}">${de?a.de:a.en}</button>`).join('')}</div></div><p class="body-map-note">${de?'Die Punkte zeigen die Körperregionen vereinfacht. Anatomie: Mikael Häggström, Wikimedia Commons.':'Markers show approximate regions. Anatomy: Mikael Häggström, Wikimedia Commons.'}</p></div><div class="body-robot-panel" id="body-robot-panel" aria-live="polite"></div></div><p class="surgical-note">${l.note}</p></section>`;
+ return `<section class="surgical-collection body-discovery" aria-labelledby="surgical-heading"><div class="surgical-intro"><div><div class="eyebrow">${de?'STATION 07 · ROBOTER IM KÖRPER':'STATION 07 · ROBOTS IN THE BODY'}</div><h2 id="surgical-heading">${de?'Wo helfen die Roboter?':'Where do the robots help?'}</h2><p>${l.intro}</p></div><span class="surgical-total">09</span></div><p class="body-instruction">${de?'Tippe auf einen Körperbereich und entdecke die Roboter dahinter.':'Tap a body region and discover the robots that help there.'}</p><div class="body-discovery-layout"><div class="body-map-panel"><div class="body-map-title">${de?'WÄHLE EINEN KÖRPERTEIL':'CHOOSE A BODY PART'}</div><div class="body-silhouette">${bodySilhouette}<div class="body-taps">${bodyAreas.map(a=>`<button type="button" class="body-tap ${bodySelection===a.id?'active':''}" style="left:${a.x}%;top:${a.y}%" data-body-area="${a.id}" aria-pressed="${bodySelection===a.id}">${de?a.de:a.en}</button>`).join('')}</div></div><p class="body-map-note">${de?'Markierungen zeigen ungefähre Körperbereiche. Anatomische Darstellung: NIH 3D, Human Reference Atlas.':'Markers show approximate body regions. Anatomical illustration: NIH 3D, Human Reference Atlas.'}</p></div><div class="body-robot-panel" id="body-robot-panel" aria-live="polite"></div></div><p class="surgical-note">${l.note}</p></section>`;
 }
 function bodyRobotCard(i){
  const s=surgicalSystems[i],de=lang==='de',l=surgicalLabels[de?'de':'en'],m=s.details,name=de&&i===7?'Magnetisch geführte Kapselendoskopie':s.name,status=i===7?'historic':[4,8].includes(i)?'research':'clinical';
