@@ -101,3 +101,13 @@
 .body-silhouette.reference-loaded .body-tap:nth-child(5){left:22%!important;top:59%!important}
 .body-silhouette.reference-loaded .body-tap:nth-child(6){left:83%!important;top:68%!important}
 .body-silhouette.reference-loaded .body-tap:nth-child(7){left:22%!important;top:87%!important}
+
+/* 2026-11-03: Repair invisible interaction overlay and undersized anatomy. */
+.body-map-panel .body-silhouette{position:relative!important;min-height:0!important;max-width:420px!important;aspect-ratio:390 / 515!important;background:#fffaf2!important;overflow:hidden!important}
+.body-map-panel .anatomy-photo{display:block!important;width:100%!important;height:100%!important;max-width:none!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center!important;mix-blend-mode:normal!important}
+.body-map-panel .body-taps{position:absolute!important;inset:0!important;z-index:8!important;pointer-events:none!important}
+.body-map-panel .body-tap,.body-map-panel .body-silhouette.reference-loaded .body-tap{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;color:#183d33!important;background:#fffaf0!important;border:2px solid #3b8350!important;box-shadow:0 5px 14px #102d2333!important;outline:none!important;font-size:12px!important;font-weight:800!important;min-width:70px!important;min-height:43px!important;white-space:nowrap!important;border-radius:999px!important;padding:8px 12px!important;align-items:center!important;justify-content:center!important}
+.body-map-panel .body-tap.active,.body-map-panel .body-silhouette.reference-loaded .body-tap.active{background:#e7f1ce!important;border-color:#327746!important}
+.body-map-panel .body-tap:before,.body-map-panel .body-silhouette.reference-loaded .body-tap:before{display:none!important}
+.body-map-panel .body-tap:focus-visible,.body-map-panel .body-silhouette.reference-loaded .body-tap:focus-visible{outline:3px solid #d29b36!important;outline-offset:3px!important}
+@media(max-width:520px){.body-map-panel .body-tap,.body-map-panel .body-silhouette.reference-loaded .body-tap{font-size:10px!important;min-width:56px!important;min-height:34px!important;padding:5px 7px!important}}
