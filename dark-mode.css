@@ -248,3 +248,123 @@ html[data-theme="dark"] .surgical-detail .robot-quiz h2,
 html[data-theme="dark"] .surgical-detail .robot-quiz h3,
 html[data-theme="dark"] .surgical-detail .robot-quiz p{color:var(--dark-text)!important}
 html[data-theme="dark"] .body-map-panel .body-tap{color:#193e32!important}
+
+/* Global station coverage: organ exploration, matching activity and laparoscopic simulator */
+html[data-theme="dark"] .organ-explorer,
+html[data-theme="dark"] .organ-game{
+  background:#1d302e!important;
+  border-color:#557466!important;
+  color:#edf7ee!important;
+}
+html[data-theme="dark"] .organ-explorer h2,
+html[data-theme="dark"] .organ-explorer h3,
+html[data-theme="dark"] .organ-game h2,
+html[data-theme="dark"] .organ-game h3{
+  color:#f0f8f1!important;
+}
+html[data-theme="dark"] .organ-explorer p,
+html[data-theme="dark"] .organ-game p,
+html[data-theme="dark"] .organ-learning-note,
+html[data-theme="dark"] .organ-explorer figcaption,
+html[data-theme="dark"] .organ-piece small,
+html[data-theme="dark"] .organ-board-note{
+  color:#c5dacb!important;
+}
+html[data-theme="dark"] .organ-list button,
+html[data-theme="dark"] .organ-piece,
+html[data-theme="dark"] .organ-feedback{
+  background:#294138!important;
+  border-color:#607f70!important;
+  color:#eff8ee!important;
+}
+html[data-theme="dark"] .organ-piece.is-placed{background:#31493d!important;opacity:.72}
+html[data-theme="dark"] .organ-list button[aria-pressed="true"],
+html[data-theme="dark"] .organ-piece[aria-pressed="true"]{
+  background:#3e5846!important;
+  border-color:#b9d48e!important;
+}
+html[data-theme="dark"] .organ-list button{color:#e7f3e8!important}
+html[data-theme="dark"] .organ-list button span,
+html[data-theme="dark"] .organ-pin{
+  color:#fff!important;
+}
+html[data-theme="dark"] .organ-piece b,
+html[data-theme="dark"] .organ-fact-number{color:#d8ecb5!important}
+html[data-theme="dark"] .organ-fact-card{
+  background:#263c33!important;
+  border-color:#91b296!important;
+  color:#edf8ed!important;
+}
+html[data-theme="dark"] .organ-fact-card h3{color:#e5f3dd!important}
+html[data-theme="dark"] .organ-fact-card p,
+html[data-theme="dark"] .organ-fact-card .organ-location{color:#d0e2d3!important}
+html[data-theme="dark"] .organ-board-wrap{
+  background:#334d40!important;
+  border-color:#678675!important;
+}
+html[data-theme="dark"] .organ-orientation{color:#d7e9d9!important}
+html[data-theme="dark"] .organ-score{
+  background:#e4edbb!important;
+  border-color:#c3d288!important;
+  color:#2d4029!important;
+}
+html[data-theme="dark"] .organ-complete .organ-feedback{
+  background:#315943!important;
+  border-color:#a5d08c!important;
+  color:#f3ffed!important;
+}
+html[data-theme="dark"] .organ-game-actions .share,
+html[data-theme="dark"] .lap-navigation button,
+html[data-theme="dark"] .lap-timer .share,
+html[data-theme="dark"] .ring-demo-controls .share{
+  background:#304c3f!important;
+  color:#f0f8f1!important;
+  border-color:#72927a!important;
+}
+html[data-theme="dark"] .ring-demo-stage{
+  background:#253c34!important;
+  border-color:#5a7967!important;
+}
+html[data-theme="dark"] .ring-demo-top,
+html[data-theme="dark"] .ring-demo-phase span{
+  color:#d0e6d6!important;
+}
+html[data-theme="dark"] .ring-demo-phase strong{
+  color:#f0f8f1!important;
+}
+html[data-theme="dark"] .ring-demo-steps li::marker{color:#b7d68d!important}
+html[data-theme="dark"] .trainer-stage,
+html[data-theme="dark"] .pivot-art{
+  background:#dce9d8!important;
+}
+html[data-theme="dark"] .lap-task-label{
+  background:#254238!important;
+  color:#eff9ef!important;
+}
+html[data-theme="dark"] .lap-badge{
+  background:#345343!important;
+  color:#eaf7eb!important;
+}
+html[data-theme="dark"] .lap-callout,
+html[data-theme="dark"] .lap-quiz{
+  background:#293f36!important;
+  color:#eaf6ed!important;
+  border-color:#658374!important;
+}
+html[data-theme="dark"] #quiz-feedback{color:#f0f8f1!important}
+html[data-theme="dark"] .lap-timer output{color:#e9f7ee!important}
+html[data-theme="dark"] .lap-timer small{color:#c6dacc!important}
+html[data-theme="dark"] .phone-instructions,
+html[data-theme="dark"] .ring-demo-copy>p{color:#d5e6d9!important}
+html[data-theme="dark"] .abdomen-organs dt,
+html[data-theme="dark"] .vascular-copy dt{color:#e7f3e7!important}
+html[data-theme="dark"] .abdomen-note p,
+html[data-theme="dark"] .vascular-inside p{color:#d0e3d4!important}
+html[data-theme="dark"] .section-head p,
+html[data-theme="dark"] .strip,
+html[data-theme="dark"] footer,
+html[data-theme="dark"] .card-bottom{color:#c6d9ce!important}
+html[data-theme="dark"] .card h3,
+html[data-theme="dark"] .card-bottom span{color:#eff8ed!important}
+html[data-theme="dark"] .guide a,
+html[data-theme="dark"] .detail a:not(.btn){text-decoration-color:#b9d795}
