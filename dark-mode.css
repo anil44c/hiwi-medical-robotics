@@ -87,3 +87,164 @@ html[data-theme="dark"] .back{color:#bdd4c6}
 html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#253c35;color:#e4f3eb;border-color:#628373}
 html[data-theme="dark"] footer{border-color:#405c50}
 @media(max-width:640px){.theme-toggle{padding:8px 10px;font-size:11px;min-height:36px}nav{gap:10px!important}}
+
+/* Contrast accessibility pass — readable text and controls in every station.
+   Uses dark-theme scope only; light mode remains unchanged. */
+html[data-theme="dark"]{
+  --dark-surface:#1e322e;
+  --dark-raised:#2a433b;
+  --dark-text:#f0f8f1;
+  --dark-subtext:#c5dacb;
+  --dark-border:#547467;
+  --dark-link:#d4ee9e;
+}
+html[data-theme="dark"] .detail h1,
+html[data-theme="dark"] .detail h2,
+html[data-theme="dark"] .detail h3,
+html[data-theme="dark"] .detail h4,
+html[data-theme="dark"] .guide h2,
+html[data-theme="dark"] .guide h3,
+html[data-theme="dark"] .robot-note h3,
+html[data-theme="dark"] .lap-guide h2,
+html[data-theme="dark"] .catheter-detail h2,
+html[data-theme="dark"] .biopsy-feature-copy h2,
+html[data-theme="dark"] .surgical-detail .station-idea h3{color:var(--dark-text)!important}
+html[data-theme="dark"] .detail p,
+html[data-theme="dark"] .guide p,
+html[data-theme="dark"] .robot-note p,
+html[data-theme="dark"] .lap-guide p,
+html[data-theme="dark"] .biopsy-feature-copy p,
+html[data-theme="dark"] .card-copy p,
+html[data-theme="dark"] .body-discovery .surgical-intro p{color:var(--dark-subtext)!important}
+html[data-theme="dark"] .info,
+html[data-theme="dark"] .step,
+html[data-theme="dark"] .detail-layout{color:var(--dark-text)}
+html[data-theme="dark"] .guide,
+html[data-theme="dark"] .robot-lab,
+html[data-theme="dark"] .robot-note,
+html[data-theme="dark"] .station-idea,
+html[data-theme="dark"] .biopsy-feature,
+html[data-theme="dark"] .vascular-learning,
+html[data-theme="dark"] .vascular-inside,
+html[data-theme="dark"] .abdomen-feature,
+html[data-theme="dark"] .abdomen-note,
+html[data-theme="dark"] .lap-guide,
+html[data-theme="dark"] .lap-quiz,
+html[data-theme="dark"] .lap-callout,
+html[data-theme="dark"] .lap-task-label,
+html[data-theme="dark"] .lap-intro,
+html[data-theme="dark"] .lap-panel,
+html[data-theme="dark"] .catheter-learning,
+html[data-theme="dark"] .story-video,
+html[data-theme="dark"] .story-after,
+html[data-theme="dark"] .robot-example,
+html[data-theme="dark"] .quiz-summary,
+html[data-theme="dark"] .surgical-card,
+html[data-theme="dark"] .robot-explanation{
+ background:var(--dark-surface)!important;
+ border-color:var(--dark-border)!important;
+ color:var(--dark-text)!important;
+}
+html[data-theme="dark"] .story-video .story-kicker,
+html[data-theme="dark"] .part-index,
+html[data-theme="dark"] .surgical-maker,
+html[data-theme="dark"] .vascular-copy dd,
+html[data-theme="dark"] .abdomen-organs dd,
+html[data-theme="dark"] .lap-timer small,
+html[data-theme="dark"] .surgical-note,
+html[data-theme="dark"] .robot-footnote{color:var(--dark-subtext)!important}
+html[data-theme="dark"] .surgical-picture,
+html[data-theme="dark"] .surgical-card:nth-child(3n+2) .surgical-picture,
+html[data-theme="dark"] .surgical-card:nth-child(3n) .surgical-picture{
+ background:#dfe8de!important;color:#204c3b!important;
+}
+html[data-theme="dark"] .surgical-picture .surgical-number,
+html[data-theme="dark"] .surgical-status{background:#f8fff1!important;color:#234535!important}
+html[data-theme="dark"] .surgical-copy .surgical-method,
+html[data-theme="dark"] .body-method{color:#d0e9c2!important}
+html[data-theme="dark"] .quiz-question legend,
+html[data-theme="dark"] .quiz-question label{color:var(--dark-text)!important}
+html[data-theme="dark"] .quiz-question legend>span,
+html[data-theme="dark"] .quiz-option b{color:#d0e9c2!important}
+html[data-theme="dark"] .quiz-option,
+html[data-theme="dark"] .robot-answer,
+html[data-theme="dark"] .lap-quiz>button,
+html[data-theme="dark"] .lap-tabs button,
+html[data-theme="dark"] .lap-chips button,
+html[data-theme="dark"] .part-tabs button{
+ background:#293f38!important;color:var(--dark-text)!important;
+ border-color:#628273!important;
+}
+html[data-theme="dark"] .quiz-option:has(input:checked),
+html[data-theme="dark"] .robot-answer[aria-pressed="true"],
+html[data-theme="dark"] .lap-quiz>button[aria-pressed="true"],
+html[data-theme="dark"] .lap-tabs button[aria-current="step"],
+html[data-theme="dark"] .lap-chips button[aria-pressed="true"],
+html[data-theme="dark"] .part-tabs button[aria-pressed="true"]{
+ background:#435b38!important;color:#f3ffe9!important;border-color:#b5d88f!important;
+}
+html[data-theme="dark"] .quiz-option.quiz-right,
+html[data-theme="dark"] .robot-answer.is-right{
+ background:#214b38!important;color:#d9ffdf!important;border-color:#8ed5a1!important;
+}
+html[data-theme="dark"] .quiz-option.quiz-wrong,
+html[data-theme="dark"] .robot-answer.is-wrong{
+ background:#55352c!important;color:#ffe0ce!important;border-color:#e8ad8b!important;
+}
+html[data-theme="dark"] .robot-answer:hover:not(:disabled),
+html[data-theme="dark"] .lap-quiz>button:hover,
+html[data-theme="dark"] .lap-tabs button:hover{background:#3c5b4b!important;color:#fff!important}
+html[data-theme="dark"] .robot-letter,
+html[data-theme="dark"] .robot-dots span,
+html[data-theme="dark"] .robot-score{background:#dbe7b7!important;color:#29402d!important}
+html[data-theme="dark"] .robot-answer b,
+html[data-theme="dark"] .robot-explanation strong{color:#c4e9b1!important}
+html[data-theme="dark"] .robot-speech,
+html[data-theme="dark"] .robot-explanation{background:#304e3f!important;color:#f0ffed!important;border-color:#628c6c!important}
+html[data-theme="dark"] .robot-restart{color:#d3e5d9!important;border-color:#628273!important}
+html[data-theme="dark"] .lap-badge,
+html[data-theme="dark"] .ring-demo-steps,
+html[data-theme="dark"] .lap-task-label{color:#eaf7ec!important}
+html[data-theme="dark"] .lap-badge{background:#365443!important}
+html[data-theme="dark"] .lap-quiz>button[aria-pressed="true"]{color:#e8ffdf!important}
+html[data-theme="dark"] .vascular-type-1{color:#e6b4db!important}
+html[data-theme="dark"] .vascular-type-2{color:#b1d4ff!important}
+html[data-theme="dark"] .vascular-learning figcaption{color:#c8d8ce!important}
+html[data-theme="dark"] .biopsy-feature-copy h3:nth-of-type(1){color:#9bdde9!important}
+html[data-theme="dark"] .biopsy-feature-copy h3:nth-of-type(2){color:#d1b4f6!important}
+html[data-theme="dark"] .biopsy-feature-copy h3:nth-of-type(3){color:#f6c794!important}
+html[data-theme="dark"] .biopsy-feature-copy h3:nth-of-type(4){color:#a5e6b6!important}
+html[data-theme="dark"] .body-discovery .surgical-intro h2,
+html[data-theme="dark"] .body-panel-heading h3,
+html[data-theme="dark"] .body-robot-copy h3,
+html[data-theme="dark"] .why-experiment h2,
+html[data-theme="dark"] .eye-difference h4{color:var(--dark-text)!important}
+html[data-theme="dark"] .why-choices button,
+html[data-theme="dark"] .eye-selector button{
+ background:#294138!important;color:#f0f8f1!important;border-color:#648572!important;
+}
+html[data-theme="dark"] .why-choices button strong,
+html[data-theme="dark"] .why-choices button small,
+html[data-theme="dark"] .eye-selector button,
+html[data-theme="dark"] .eye-fact strong,
+html[data-theme="dark"] .eye-fact span{color:#e3f1e5!important}
+html[data-theme="dark"] .why-choices button.active,
+html[data-theme="dark"] .eye-selector button.active{background:#425c3a!important;border-color:#b8d78c!important;color:#fff!important}
+html[data-theme="dark"] .why-answer{background:#473c2b!important;border-color:#a79260!important;color:#fff0c7!important}
+html[data-theme="dark"] .why-answer p,
+html[data-theme="dark"] .why-answer span{color:#ffebc6!important}
+html[data-theme="dark"] .body-robot-panel,
+html[data-theme="dark"] .body-panel-heading{color:var(--dark-text)!important}
+html[data-theme="dark"] .body-robot-copy p{color:var(--dark-subtext)!important}
+html[data-theme="dark"] .body-map-title,
+html[data-theme="dark"] .body-map-note{color:#d0e4d6!important}
+html[data-theme="dark"] .eye-difference{background:#453b2b!important;border-color:#8b754e!important}
+html[data-theme="dark"] .eye-fact{border-color:#827049!important}
+html[data-theme="dark"] .eye-fact span{color:#f7dfb8!important}
+html[data-theme="dark"] .body-status{color:#e7ffdf!important;background:#3b624a!important}
+html[data-theme="dark"] .body-instruction{color:#ffe9bf!important}
+html[data-theme="dark"] .surgical-detail .robot-quiz{color:var(--dark-text)!important}
+html[data-theme="dark"] .surgical-detail .robot-quiz h2,
+html[data-theme="dark"] .surgical-detail .robot-quiz h3,
+html[data-theme="dark"] .surgical-detail .robot-quiz p{color:var(--dark-text)!important}
+html[data-theme="dark"] .body-map-panel .body-tap{color:#193e32!important}
