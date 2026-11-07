@@ -368,3 +368,84 @@ html[data-theme="dark"] .card h3,
 html[data-theme="dark"] .card-bottom span{color:#eff8ed!important}
 html[data-theme="dark"] .guide a,
 html[data-theme="dark"] .detail a:not(.btn){text-decoration-color:#b9d795}
+
+/* Standalone Robotics Body Atlas (legacy Station 06): full dark-theme coverage */
+html[data-theme="dark"]:has(.site-header){
+  background:#101b1b!important;
+  color:#edf7f0!important;
+  --accent:#b7d5ac;
+  --sage:#233d33;
+}
+html[data-theme="dark"] .site-header{border-bottom-color:#4a6659}
+html[data-theme="dark"] .site-header .back,
+html[data-theme="dark"] .site-header a{color:#d9eddf!important}
+html[data-theme="dark"] .languages{background:#1d332c!important}
+html[data-theme="dark"] .languages button{color:#e4f4e9!important}
+html[data-theme="dark"] .languages button[aria-pressed="true"]{background:#d4e9a4!important;color:#243e2b!important}
+html[data-theme="dark"] .hero em,
+html[data-theme="dark"] .journey span{color:#c8dfa9!important}
+html[data-theme="dark"] .principle,
+html[data-theme="dark"] .system-detail,
+html[data-theme="dark"] .mission-card{
+  background:#1f342e!important;
+  border-color:#526f60!important;
+  color:#edf8f0!important;
+}
+html[data-theme="dark"] .principle h3,
+html[data-theme="dark"] .system-title h3,
+html[data-theme="dark"] .mission-card h3{color:#edf8ef!important}
+html[data-theme="dark"] .principle p,
+html[data-theme="dark"] .experiment p,
+html[data-theme="dark"] .mission-header p,
+html[data-theme="dark"] .mission-card p,
+html[data-theme="dark"] .system-title p,
+html[data-theme="dark"] .section-heading p,
+html[data-theme="dark"] .system-facts dt,
+html[data-theme="dark"] .concept-note,
+html[data-theme="dark"] .body-note,
+html[data-theme="dark"] .facilitator p,
+html[data-theme="dark"] .experiment small{color:#c6dbce!important}
+html[data-theme="dark"] .principle .number,
+html[data-theme="dark"] .system-choice span{color:#b7d4bc!important}
+html[data-theme="dark"] .experiment,
+html[data-theme="dark"] .mission{
+  background:#233c33!important;
+  color:#edf8ef!important;
+  border:1px solid #526e5e;
+}
+html[data-theme="dark"] .system-choice{color:#edf8ef!important;border-color:transparent}
+html[data-theme="dark"] .system-choice:hover{background:#2d483d!important;border-color:#688976!important}
+html[data-theme="dark"] .system-choice[aria-pressed="true"]{
+  background:#506742!important;color:#f4ffe9!important;border-color:#a8c787!important;
+}
+html[data-theme="dark"] .system-choice[aria-pressed="true"] span{color:#e6f9d5!important}
+html[data-theme="dark"] .system-top{background:#2d473b!important}
+html[data-theme="dark"] .badge{color:#e2efdf;border-color:#7da48c}
+html[data-theme="dark"] .motion-track{background:#3d5a4b}
+html[data-theme="dark"] .motion-fill{background:#a8cbae}
+html[data-theme="dark"] .experiment label{color:#ebf6ef}
+html[data-theme="dark"] .score{background:#f6e6aa;color:#4c3c20!important}
+html[data-theme="dark"] .feedback{color:#eaf6ee}
+html[data-theme="dark"] .feedback.good{color:#b5f0c5!important}
+html[data-theme="dark"] .hint-button,
+html[data-theme="dark"] .restart{color:#d5f0cf!important;border-color:#a7cfaa!important}
+html[data-theme="dark"] .body-wrap{
+  background:#e5eee3!important;
+  border-color:#90b39b!important;
+  color:#18382d!important;
+}
+html[data-theme="dark"] .body-target{
+  background:#fffdf5!important;color:#244837!important;border-color:#648f6f!important;
+}
+html[data-theme="dark"] .body-target.preview{background:#d6ecd9!important}
+html[data-theme="dark"] .body-target.correct{background:#246546!important;color:white!important}
+html[data-theme="dark"] .body-target.wrong{background:#f9e5b7!important;color:#5c3f20!important}
+html[data-theme="dark"] .body-note{color:#355845!important}
+html[data-theme="dark"] .mission-progress span{background:#537262}
+html[data-theme="dark"] .mission-progress .done{background:#b7d18c}
+html[data-theme="dark"] .mission-progress .current{background:#e7bf76}
+html[data-theme="dark"] .button{background:#d8e99e!important;color:#1d4031!important;border-color:#d8e99e!important}
+html[data-theme="dark"] .button.light{background:transparent!important;color:#e6f6e8!important;border-color:#86ac91!important}
+html[data-theme="dark"] .facilitator{border-color:#547366}
+html[data-theme="dark"] .sources a{color:#d7f0c2}
+html[data-theme="dark"] .skip{background:#d9efcc;color:#204a33}
