@@ -449,3 +449,39 @@ html[data-theme="dark"] .button.light{background:transparent!important;color:#e6
 html[data-theme="dark"] .facilitator{border-color:#547366}
 html[data-theme="dark"] .sources a{color:#d7f0c2}
 html[data-theme="dark"] .skip{background:#d9efcc;color:#204a33}
+
+/* Accessible sound control in every Lumi quiz — dark-theme only */
+html[data-theme="dark"] .lumi-audio-controls #lumi-sound,
+html[data-theme="dark"] .lumi-audio-controls button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  background:#29463a!important;
+  color:#f1f9ee!important;
+  border:1px solid #83aa8a!important;
+  border-radius:24px;
+  box-shadow:none!important;
+  opacity:1!important;
+}
+html[data-theme="dark"] .lumi-audio-controls button[aria-pressed="true"]{
+  background:#3b624b!important;
+  color:#f7fff1!important;
+  border-color:#a2cf9c!important;
+}
+html[data-theme="dark"] .lumi-audio-controls button[aria-pressed="false"]{
+  background:#253a34!important;
+  color:#d4e3dc!important;
+  border-color:#678a7e!important;
+}
+html[data-theme="dark"] .lumi-audio-controls button:hover:not(:disabled){
+  background:#4d7157!important;
+  border-color:#c3e3ae!important;
+}
+html[data-theme="dark"] .lumi-audio-controls button:focus-visible{
+  outline:3px solid #d0e9a2!important;
+  outline-offset:3px;
+}
+html[data-theme="dark"] .lumi-audio-status{
+  color:#d0e0d5!important;
+}
