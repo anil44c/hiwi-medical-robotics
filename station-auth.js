@@ -1,2 +1,4 @@
-// Public project settings. Never use a secret or service_role key here.
-window.stationAuth = {url: '', publicKey: ''};
+window.stationAuth = {
+  url: 'https://mmpvekizjleopillxmdd.supabase.co',
+  publicKey: 'sb_publishable_WrmQ7xEW8NgbIlxCWLQFsg_DDG2sRMM'
+};
