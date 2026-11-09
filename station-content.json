@@ -1,0 +1,70 @@
+{
+  "en": {
+    "robotics": {
+      "name": "What is robotics?",
+      "tag": "The fundamentals",
+      "desc": "Meet the building blocks that turn sensing and movement into purposeful action.",
+      "why": "A robot combines a physical system with control. Sensors provide information, a controller processes it, and actuators create movement. Robots can be programmed, directly operated by people, or combine both approaches.",
+      "setup": "Explore the five parts of our interactive robot. Then look for similar functions on the demonstration models with a facilitator.",
+      "reflect": "If a machine moves, does that automatically make it a robot? What else would you want to know?"
+    },
+    "laparoscopy": {
+      "name": "Laparoscopy",
+      "tag": "Minimal access · precise movement",
+      "desc": "Explore how long instruments make delicate work possible through small openings.",
+      "why": "Laparoscopy lets a surgeon work through small openings while viewing the inside of the body with a camera. Compared with an open approach, it can reduce incision size; benefits and suitability depend on the procedure and patient.",
+      "setup": "A training box, laparoscopic instruments and a simple transfer task. Compare handling with and without a trocar: the access sleeve guides the instrument at the entry point.",
+      "reflect": "Why can moving the handle to one side move the instrument tip to the other?"
+    },
+    "catheter": {
+      "name": "Catheter navigation",
+      "tag": "Endovascular exploration",
+      "desc": "Follow a branching vessel model and discover the challenge of steering from outside.",
+      "why": "Endovascular techniques use thin instruments inside blood vessels to reach a target. The challenge is to navigate a branching pathway while controlling an instrument from outside the body.",
+      "setup": "A catheter with two degrees of freedom (2 DOF) and a branching vessel model. The facilitator introduces the two available controls on the model before the task.",
+      "reflect": "What feedback would help you steer if you could not see the vessel model directly?"
+    },
+    "biopsy": {
+      "name": "Biopsy",
+      "tag": "Targeting · sample collection",
+      "desc": "Use modelling clay to explore how a small sample can represent a larger structure.",
+      "why": "A biopsy involves collecting a sample for examination. This simplified activity uses modelling clay to explore targeting and sampling — it does not reproduce a clinical procedure.",
+      "setup": "A modelling-clay model with a target area and a facilitator-approved sampling tool. The facilitator prepares the model and demonstrates how to handle the tool.",
+      "reflect": "How could an image or a robot help someone reach a target they cannot directly see?"
+    }
+  },
+  "de": {
+    "robotics": {
+      "name": "Was ist Robotik?",
+      "tag": "Die Grundlagen",
+      "desc": "Entdecke, wie Roboter ihre Umgebung wahrnehmen, Informationen verarbeiten und sich bewegen.",
+      "why": "Ein Roboter verbindet einen Körper mit einer Steuerung. Sensoren liefern Informationen, die Steuerung verarbeitet sie und Aktoren sorgen für Bewegung. Roboter können programmiert oder von Menschen bedient werden – manchmal kommt beides zusammen.",
+      "setup": "Entdecke zuerst die Teile unseres interaktiven Roboters. Suche danach gemeinsam mit einer Betreuungsperson ähnliche Funktionen an den Modellen vor Ort.",
+      "reflect": "Ist jede Maschine, die sich bewegt, schon ein Roboter? Was möchtest du noch über sie wissen?"
+    },
+    "laparoscopy": {
+      "name": "Laparoskopie",
+      "tag": "Kleine Zugänge · präzise Bewegung",
+      "desc": "Erfahre, wie lange Instrumente das Arbeiten durch kleine Öffnungen ermöglichen.",
+      "why": "Bei einer Laparoskopie arbeitet die Chirurgin oder der Chirurg durch kleine Öffnungen und sieht das Körperinnere mit einer Kamera. Gegenüber einer offenen Operation können die Schnitte kleiner sein. Vorteile und Eignung hängen vom Eingriff und der jeweiligen Person ab.",
+      "setup": "Eine Trainingsbox, laparoskopische Instrumente und eine einfache Umsetzaufgabe. Vergleiche die Handhabung mit und ohne Trokar: Diese Zugangshülse führt das Instrument an der Eintrittsstelle.",
+      "reflect": "Warum kann sich die Instrumentenspitze in die entgegengesetzte Richtung zum Griff bewegen?"
+    },
+    "catheter": {
+      "name": "Katheter-Navigation",
+      "tag": "Unterwegs im Gefäßmodell",
+      "desc": "Navigiere durch ein verzweigtes Gefäßmodell und entdecke, wie das Steuern von außen funktioniert.",
+      "why": "Bei endovaskulären Verfahren werden dünne Instrumente innerhalb von Blutgefäßen zu einem Ziel geführt. Die Herausforderung: einen verzweigten Weg finden und das Instrument dabei von außen steuern.",
+      "setup": "Ein Katheter mit zwei Freiheitsgraden (2 DOF) und ein verzweigtes Gefäßmodell. Die Betreuungsperson erklärt dir vor Beginn die beiden Steuerungsmöglichkeiten des Modells.",
+      "reflect": "Welche Rückmeldung würde dir helfen, wenn du das Gefäßmodell nicht direkt sehen könntest?"
+    },
+    "biopsy": {
+      "name": "Biopsie",
+      "tag": "Zielen · Proben entnehmen",
+      "desc": "Entdecke mit einem Knetmodell, wie eine kleine Probe Hinweise auf eine größere Struktur geben kann.",
+      "why": "Bei einer Biopsie wird eine Probe zur Untersuchung entnommen. Diese vereinfachte Aktivität nutzt Knete, um das Zielen und die Probenentnahme zu erklären. Sie bildet keinen klinischen Eingriff nach.",
+      "setup": "Ein Knetmodell mit einem Zielbereich und ein von der Betreuungsperson ausgewähltes Werkzeug. Lass dir vor Beginn zeigen, wie du das Werkzeug verwendest.",
+      "reflect": "Wie könnten ein Bild oder ein Roboter dabei helfen, ein nicht direkt sichtbares Ziel zu erreichen?"
+    }
+  }
+}
