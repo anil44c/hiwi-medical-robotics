@@ -1,7 +1,11 @@
-# Maintaining the student site
+# Station administration
 
-Open the student site and select Administration in the footer (or append ?manage=1 before the station hash). Sign in with a fine-grained GitHub personal access token restricted to this repository, with Contents read and write permission. Generate it under GitHub Settings → Developer settings → Personal access tokens → Fine-grained tokens. Each maintainer needs their own account with repository write access. Never share a token or paste it into a station text. Sign out on shared computers. The token and unpublished changes are held only in browser memory.
+On the main site, click the person icon beside the theme and language controls. Editors use email and password. They can change station 1–4 text and MP4 videos, preview edits, and publish. Changes are stored in Supabase; students see the latest version on reload. Sessions and unpublished drafts stay in memory.
 
-Open one of the first four stations. Click outlined text to edit it, switch between English and German, or choose an MP4 up to 25 MB beside the station video. Videos are shared between languages. Check the existing subtitle timing for a replacement video. Preview and then Publish. GitHub authorizes the write and Pages deploys it. Branch rules requiring a pull request prevent direct publication. Concurrent changes are rejected. To undo a publication, revert its commit in GitHub.
+## One-time activation by the project owner
 
-Games, new stations, subtitle files and animations are maintained in the repository. Before handover, test publishing with the professor’s own account and confirm their ability to recover or revert a change.
+1. Create or select a university-controlled Supabase project. In Auth enable Email/password and disable public sign-ups.
+2. Run maintenance/station-auth.sql once in the project's SQL editor. This installs read access to published content and restricts writes to explicitly authorized users.
+3. Create and confirm an account in Auth → Users. Add its UUID in the station_editors table using the dashboard. Remove this row to revoke editing rights.
+4. Put the HTTPS project URL (without a trailing slash) and its **publishable** key in station-auth.js and deploy. Never include a secret or service_role key. Publishable keys are meant to be public; authorization comes from row-level security.
+5. Test an unauthenticated read, a denied write, an authorized edit, video upload and sign-out with the university's test account. Passwords should be set privately. For email-based password recovery configure the project's email delivery.

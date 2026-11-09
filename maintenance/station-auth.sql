@@ -1,0 +1,16 @@
+begin;
+create table public.station_editors(id uuid primary key references auth.users(id) on delete cascade);
+create table public.station_publication(id integer primary key check(id=1), revision integer not null default 0, content jsonb);
+insert into public.station_publication(id) values(1);
+alter table public.station_editors enable row level security;
+alter table public.station_publication enable row level security;
+revoke all on public.station_editors, public.station_publication from anon,authenticated;
+grant select on public.station_editors to authenticated;
+grant select on public.station_publication to anon,authenticated;
+grant update(content,revision) on public.station_publication to authenticated;
+create policy own_membership on public.station_editors for select to authenticated using(id=auth.uid());
+create policy read_publication on public.station_publication for select using(true);
+create policy edit_publication on public.station_publication for update to authenticated using(exists(select 1 from public.station_editors where id=auth.uid())) with check(exists(select 1 from public.station_editors where id=auth.uid()));
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('station-films','station-films',true,26214400,array['video/mp4']);
+create policy upload_station_film on storage.objects for insert to authenticated with check(bucket_id='station-films' and exists(select 1 from public.station_editors where id=auth.uid()));
+commit;
