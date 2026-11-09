@@ -7,7 +7,7 @@
   let token='', revision=0, draft, original, editing=false, busy=false;
   const videos=new Map();
   const style=document.createElement('style');
-  style.textContent='.manage-bar{position:sticky;top:0;z-index:1000;background:#163e38;color:white;padding:10px 4vw;display:flex;align-items:center;gap:9px;flex-wrap:wrap;font:15px system-ui}.manage-bar button,.manage-dialog button,.manage-file{background:white;color:#173f39;padding:7px 12px;border:1px solid #69988a;border-radius:8px;cursor:pointer;font:inherit}.manage-dialog{max-width:min(450px,90vw);border:1px solid #aac6b9;border-radius:14px;padding:24px}.manage-dialog input{width:100%;margin:12px 0;padding:8px}.manage-dialog::backdrop{background:#10282288}[data-edit-field][contenteditable=true]{outline:1.5px dashed #408f80;outline-offset:3px;cursor:text}.manage-file{display:inline-block;margin:8px}.manage-bar [role=status]{font-size:13px}';
+  style.textContent='.manage-bar{position:fixed;right:12px;bottom:12px;z-index:1000;max-width:min(440px,94vw);background:white;color:#173f39;padding:10px;border:1px solid #aec4b9;border-radius:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:15px system-ui}.manage-bar[hidden]{display:none}.manage-bar button,.manage-dialog button,.manage-file{background:white;color:#173f39;padding:7px 12px;border:1px solid #69988a;border-radius:8px;cursor:pointer;font:inherit}.manage-dialog{max-width:min(450px,90vw);border:1px solid #aac6b9;border-radius:14px;padding:24px}.manage-dialog input{width:100%;margin:12px 0;padding:8px}.manage-dialog::backdrop{background:#10282288}[data-edit-field][contenteditable=true]{outline:1.5px dashed #408f80;outline-offset:3px;cursor:text}.manage-file{display:inline-block;margin:8px}.manage-bar [role=status]{font-size:13px}';
   document.head.append(style);
   async function api(path,method='GET',body,extra={}){
     const raw=body instanceof Blob;
@@ -34,8 +34,7 @@
   function buttons(){
     bar.replaceChildren();
     const add=(label,action)=>{const b=document.createElement('button');b.textContent=label;b.disabled=busy;b.onclick=action;bar.append(b);};
-    if(!draft)add(message('Administrator sign in','Verwaltung anmelden'),login);
-    else {
+    if(draft){
       add(editing?message('Preview','Vorschau'):message('Edit page','Seite bearbeiten'),()=>{editing=!editing;refresh();});
       add(message('Publish','Veröffentlichen'),publish);
       add(message('Sign out','Abmelden'),()=>{if(dirty()&&!confirm(message('Discard unpublished changes?','Unveröffentlichte Änderungen verwerfen?')))return;cleanup();token='';original=draft=null;location.replace(location.pathname+location.hash);});
@@ -59,8 +58,8 @@
         const [row]=await api('/rest/v1/station_publication?id=eq.1&select=content,revision');
         revision=row.revision;original=row.content || await (await fetch('station-content.json',{cache:'no-cache'})).json();
         draft=structuredClone(original);
-        editing=true;refresh();tell(message('Open a station and click the outlined text.','Öffne eine Station und klicke auf den umrandeten Text.'));
-      }catch(err){token='';tell(err.message);}
+        bar.hidden=false;editing=true;refresh();tell(message('Open a station and click the outlined text.','Öffne eine Station und klicke auf den umrandeten Text.'));
+      }catch(err){token='';alert(err.message);}
     };
   }
   function decorate(){
@@ -103,6 +102,6 @@
     finally{busy=false;bar.querySelectorAll('button').forEach(b=>b.disabled=false);}
   }
   window.decorateStationEditor=decorate;
-  {bar=document.createElement('aside');bar.className='manage-bar';document.body.prepend(bar);bar.hidden=true;bar.style.display='none';document.querySelector('#station-admin').onclick=()=>{bar.hidden=false;bar.style.display='flex';buttons();if(!draft)login();};buttons();}
+  {bar=document.createElement('aside');bar.className='manage-bar';document.body.append(bar);bar.hidden=true;document.querySelector('#station-admin').onclick=()=>{if(!draft)login();else bar.hidden=!bar.hidden;};buttons();}
   decorate();
 })();
