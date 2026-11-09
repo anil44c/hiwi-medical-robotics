@@ -44,9 +44,22 @@ class BoardGuide extends HTMLElement {
     ${biopsy?'<path d="M358 181 Q362 174 369 179 Q377 176 378 185 Q381 193 372 196 Q362 199 357 192Z" fill="#c97485" stroke="#93485e" stroke-width="2"/>':''}
     <path data-shaft fill="none" stroke="${biopsy?'#506b77':'#176d63'}" stroke-width="4" stroke-linecap="round"/>
     <g data-tip>${biopsy?'<path data-jaws fill="none" stroke="#294f5a" stroke-width="2.5" stroke-linecap="round"/>':'<circle r="4" fill="#ebae53" stroke="#74552a"/>'}</g>
-    <circle data-piece r="3.8" fill="#f5aa6b" stroke="#895343" stroke-width="1.4"/></svg>
+    <circle data-piece r="3.8" fill="#f5aa6b" stroke="#895343" stroke-width="1.4"/>${biopsy?`<g data-lens opacity="0" aria-hidden="true">
+<path d="M370 174 L393 135" stroke="#61877f" stroke-width="2" stroke-dasharray="3 4"/>
+<path d="M440 128 L457 145" stroke="#315f59" stroke-width="8" stroke-linecap="round"/>
+<circle cx="414" cy="97" r="43" fill="#fffaf1" stroke="#366962" stroke-width="4"/>
+<path d="M373 100 H400" stroke="#78939a" stroke-width="6"/>
+<path d="M427 86 Q431 79 438 82 Q450 85 447 98 Q448 110 434 112 Q425 113 425 104" fill="#c97485"/>
+<g data-grip fill="#a5c1c2" stroke="#31545d" stroke-width="2" stroke-linejoin="round">
+<path data-upper d="M399 100 Q407 95 423 95 Q424 99 418 99 L401 102Z"/>
+<path data-lower d="M399 100 Q407 105 423 105 Q424 101 418 101 L401 98Z"/>
+<circle cx="400" cy="100" r="3" fill="#e5efeb"/></g>
+<circle data-chip cx="422" cy="100" r="4.3" fill="#f5aa6b" stroke="#895343" stroke-width="1.3"/></g>`:''}</svg>
     <ol class="bg-list">${steps.map(step=>'<li>'+step+'</li>').join('')}</ol></div></section>`;
     const shaft = this.querySelector('[data-shaft]'), tip = this.querySelector('[data-tip]'), piece = this.querySelector('[data-piece]');
+    const lens = this.querySelector('[data-lens]');
+    const upperJaw = lens?.querySelector('[data-upper]'), lowerJaw = lens?.querySelector('[data-lower]');
+    const grip = lens?.querySelector('[data-grip]'), chip = lens?.querySelector('[data-chip]');
     let target = biopsy ? 'right' : 'heart';
     const play = () => {
       cancelAnimationFrame(this.frame);
@@ -57,7 +70,10 @@ class BoardGuide extends HTMLElement {
       const start=performance.now();
       const clamp=x=>Math.max(0,Math.min(1,x));
       const render = now => {
-        const t=clamp((now-start)/11500);
+        const elapsed=(now-start)/1000;
+        const t=biopsy && elapsed>6.9
+          ? (elapsed<10.9 ? 0.60+(elapsed-6.9)*0.13/4 : clamp(0.73+(elapsed-10.9)/11.5))
+          : clamp(elapsed/11.5);
         const progress=t<0.60?clamp((t-0.08)/0.52):1-clamp((t-0.73)/0.25);
         const distance=progress*length;
         const p=shaft.getPointAtLength(distance);
@@ -65,7 +81,14 @@ class BoardGuide extends HTMLElement {
         tip.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI})`);
         shaft.style.strokeDashoffset=length-distance;
         if(biopsy){
-          const open=t>=0.59&&t<0.67 || t>=0.98;
+          const spread=clamp((t-0.60)/0.022)*clamp((0.67-t)/0.022);
+          const withdraw=clamp((t-0.675)/0.055)*10;
+          lens.setAttribute('opacity',clamp((t-0.60)/0.009)*clamp((0.745-t)/0.015));
+          upperJaw.setAttribute('transform',`rotate(${-26*spread} 400 100)`);
+          lowerJaw.setAttribute('transform',`rotate(${26*spread} 400 100)`);
+          grip.setAttribute('transform',`translate(${-withdraw} 0)`);
+          chip.setAttribute('cx',422-withdraw);
+          const open=spread>0.3 || t>=0.98;
           this.querySelector('[data-jaws]').setAttribute('d',open?'M-4 0 L4 -4 M-4 0 L4 4':'M-4 0 L4 -1 M-4 0 L4 1');
           piece.setAttribute('cx',t<0.67?364:p.x);
           piece.setAttribute('cy',t<0.67?187:p.y+(t>=0.98?6:0));
