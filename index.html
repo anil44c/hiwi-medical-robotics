@@ -167,6 +167,7 @@ async function loadStationText() {
   const cfg=window.stationAuth;
   if(cfg?.url && cfg.publicKey){try{const remote=await fetch(cfg.url+"/rest/v1/station_publication?id=eq.1&select=content",{headers:{apikey:cfg.publicKey},cache:"no-store"});if(remote.ok)content=(await remote.json())[0]?.content || content;}catch{}}
   window.stationPublishedContent = content;
+  window.syncStationQuiz?.(content);
   const escapeText = value => value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   for (const [language,stations] of [['en',englishData],['de',germanData]]) {
     for (const station of stations) {
