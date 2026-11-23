@@ -36,11 +36,8 @@ class BoardGuide extends HTMLElement {
     </style><section class="lap-guide"><h2>${biopsy?tr('Take a clay sample from the kidney model','Eine Knetprobe aus dem Nierenmodell entnehmen'):tr('Guide the catheter to an organ','Den Katheter zum Organ führen')}</h2>
     <div class="bg-actions">${biopsy?'':Object.entries(names).map(([key,label])=>`<button type="button" data-target="${key}">${label}</button>`).join('')}<button type="button" data-play>↻ ${tr('Play again','Erneut abspielen')}</button></div>
     <div class="bg-grid">${biopsy?`<svg viewBox="0 0 480 362" role="img" aria-label="${tr('A needle takes a clay sample from a cutaway kidney model','Eine Nadel entnimmt eine Knetprobe aus einem Nierenmodell')}">
-<rect x="4" y="4" width="472" height="354" rx="18" fill="#edf3ec"/>
-<g transform="translate(24 9)"><path d="M167 47C103 36 61 85 60 162c-2 86 43 143 105 145 47 2 82-25 79-60-2-26-26-41-51-46-24-5-27-24-7-40 23-19 54-34 50-65-3-26-32-44-69-49Z" fill="#b57564" stroke="#965d51" stroke-width="3"/>
-<path d="M165 58C106 49 73 97 73 161c0 77 37 128 91 132 42 3 71-21 68-46-3-19-24-31-45-37-35-9-39-36-14-58 24-21 54-34 51-57-3-17-26-32-59-37Z" fill="#e1a189"/>
-<path d="M111 90q16-14 40-15l8 62ZM87 119l61 30-66 16q-1-24 5-46Zm-3 72 66-24-48 61q-14-14-18-37Zm29 56 47-55-11 82q-23-8-36-27Zm52 33 12-61 34 44q-16 17-46 17Z" fill="#c1806c"/>
-<ellipse cx="176" cy="249" rx="22" ry="19" fill="#e6bb55" stroke="#aa8339" stroke-width="2"/></g>
+<defs><clipPath id="biopsy-kidney-frame"><rect x="4" y="4" width="472" height="354" rx="18"/></clipPath></defs>
+<g clip-path="url(#biopsy-kidney-frame)"><rect x="4" y="4" width="472" height="354" fill="#f3e7d8"/><image href="assets/biopsy-kidney-model.webp" x="24" y="4" width="354" height="354"/></g>
 <g data-needle><g transform="rotate(-32)"><path d="M0 0l8-3h96v5H7Z" fill="#607981"/><path d="M10-1h89" stroke="#dae8e7" stroke-width="1.5"/><rect x="96" y="-7" width="44" height="14" rx="4" fill="#345e58"/><path d="M106-5v10m7-10v10m7-10v10" stroke="#83a6a0" stroke-width="2"/><path data-core d="M-10-2h13v5h-13q-3-2 0-5Z" fill="#e5b651" stroke="#997433" stroke-width="1"/></g></g></svg>`:`<svg viewBox="0 0 480 362" role="img" aria-label="${tr('Training board with a heart, two kidneys and branching tubes','Übungsmodell mit Herz, zwei Nieren und verzweigten Schläuchen')}">
     <defs><linearGradient id="bg-board" x2="1" y2="1"><stop stop-color="#f6faf4"/><stop offset="1" stop-color="#dcece6"/></linearGradient><linearGradient id="bg-kidney" x2="1" y2="1"><stop stop-color="#edb697"/><stop offset="1" stop-color="#c78673"/></linearGradient></defs>
     <rect x="4" y="4" width="472" height="354" rx="18" fill="#f1f6f0"/><path d="M34 15 H446 L466 331 Q467 337 460 337 H20 Q13 337 14 331 Z" fill="url(#bg-board)" stroke="#a8c8bf" stroke-width="2"/>
@@ -55,8 +52,8 @@ class BoardGuide extends HTMLElement {
       const items=this.querySelectorAll('li');
       const smooth=value=>{const x=Math.max(0,Math.min(1,value));return x*x*(3-2*x);};
       const draw=t=>{
-        const offset=109-62*smooth((t-1.6)/2.3)-47*smooth((t-4.4)/2.1)+105*smooth((t-7.5)/2.8);
-        needle.setAttribute('transform',`translate(${200+offset*.848} ${258-offset*.53})`);
+        const offset=82-35*smooth((t-1.6)/2.3)-47*smooth((t-4.4)/2.1)+82*smooth((t-7.5)/2.8);
+        needle.setAttribute('transform',`translate(${258+offset*.848} ${269-offset*.53})`);
         sample.setAttribute('visibility',t>=7.8?'visible':'hidden');
         const step=t<1.6?0:t<4.4?1:t<7.5?2:3;
         items.forEach((item,index)=>item.setAttribute('aria-current',index===step?'step':'false'));
