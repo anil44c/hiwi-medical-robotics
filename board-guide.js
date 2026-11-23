@@ -13,7 +13,7 @@ class BoardGuide extends HTMLElement {
       right: trunk + ' C299 250 315 195 361 187'
     };
     const steps = biopsy ? [
-      tr('Find the yellow modelling clay in the cut face of the kidney model.', 'Suche die gelbe Knete in der Schnittfläche des Nierenmodells.'),
+      tr('Find the yellow modelling clay in the cut face of the kidney on the right.', 'Suche die gelbe Knete in der Schnittfläche der Niere rechts im Bild.'),
       tr('With your guide, aim the sampling needle at the clay.', 'Richte die Probenadel gemeinsam mit deiner Betreuungsperson auf die Knete.'),
       tr('Press the needle directly into the clay to collect a small sample.', 'Drücke die Nadel direkt in die Knete, um eine kleine Probe zu entnehmen.'),
       tr('Pull the needle back and look at the small piece of clay you collected.', 'Ziehe die Nadel zurück und schau dir die kleine Knetprobe an.')
@@ -35,35 +35,14 @@ class BoardGuide extends HTMLElement {
     @media(max-width:720px){board-guide .bg-grid{grid-template-columns:1fr}}
     </style><section class="lap-guide"><h2>${biopsy?tr('Take a clay sample from the kidney model','Eine Knetprobe aus dem Nierenmodell entnehmen'):tr('Guide the catheter to an organ','Den Katheter zum Organ führen')}</h2>
     <div class="bg-actions">${biopsy?'':Object.entries(names).map(([key,label])=>`<button type="button" data-target="${key}">${label}</button>`).join('')}<button type="button" data-play>↻ ${tr('Play again','Erneut abspielen')}</button></div>
-    <div class="bg-grid">${biopsy?`<svg viewBox="0 0 480 362" role="img" aria-label="${tr('A needle takes a clay sample from a cutaway kidney model','Eine Nadel entnimmt eine Knetprobe aus einem Nierenmodell')}">
-<defs>
-      <linearGradient id="renal-face" x2=".8" y2="1"><stop stop-color="#f2c3a9"/><stop offset="1" stop-color="#d89a80"/></linearGradient>
-      <path id="renal-outline" d="M183 37C247 25 297 73 298 143c2 67-21 143-75 168-37 18-88 5-94-31-5-26 8-46 36-60 24-12 28-28 11-43-13-12-36-16-47-33-23-35-9-95 54-107Z"/>
-    </defs>
-    <rect x="4" y="4" width="472" height="354" rx="18" fill="#eff5ef"/>
-    <g stroke-linecap="round" stroke-linejoin="round">
-      <use href="#renal-outline" transform="translate(0 5)" fill="#b87965" stroke="#925f51" stroke-width="2.8"/>
-      <use href="#renal-outline" fill="url(#renal-face)" stroke="#936152" stroke-width="2.8"/>
-      <path d="M143 91c9-30 37-45 65-42 41 4 69 37 75 78" fill="none" stroke="#fae0c9" stroke-width="3"/>
-      <g fill="#cc8c75" stroke="#bb7f68" stroke-width="1.2">
-        <path d="M154 89q14-24 38-28l6 72q-25-24-44-44Z"/>
-        <path d="M208 61q29 1 48 22l-48 54Z"/>
-        <path d="M268 101q16 23 14 53l-66 3Z"/>
-        <path d="M282 175q-1 35-13 57l-53-45Z"/>
-        <path d="M251 239q-11 36-34 51l-15-72Z"/>
-        <path d="M200 292q-23 13-43-3l29-51Z"/>
-      </g>
-      <path d="M172 182q30 6 35-23m-3 15q18-10 27-16m-28 20q17 8 26 19m-31-13q5 21 3 35m3-51q1-18-8-30" fill="none" stroke="#ffe0bd" stroke-width="5"/>
-      <path d="M243 260q3-10 14-9 10-2 17 6 9 10 0 21-7 9-21 6-16-2-14-14Z" fill="#eabd56" stroke="#ae8437" stroke-width="2"/>
-      <path d="M247 262q3-6 10-6" fill="none" stroke="#ffe29a" stroke-width="2.6"/>
-    </g>
-    <g data-needle><g transform="rotate(-32)"><path d="M0 0l8-3h96v5H7Z" fill="#607981"/><path d="M10-1h89" stroke="#dae8e7" stroke-width="1.5"/><rect x="96" y="-7" width="44" height="14" rx="4" fill="#345e58"/><path d="M106-5v10m7-10v10m7-10v10" stroke="#83a6a0" stroke-width="2"/><path data-core d="M-10-2h13v5h-13q-3-2 0-5Z" fill="#e5b651" stroke="#997433" stroke-width="1"/></g></g></svg>`:`<svg viewBox="0 0 480 362" role="img" aria-label="${tr('Training board with a heart, two kidneys and branching tubes','Übungsmodell mit Herz, zwei Nieren und verzweigten Schläuchen')}">
-    <defs><linearGradient id="bg-board" x2="1" y2="1"><stop stop-color="#f6faf4"/><stop offset="1" stop-color="#dcece6"/></linearGradient><linearGradient id="bg-kidney" x2="1" y2="1"><stop stop-color="#edb697"/><stop offset="1" stop-color="#c78673"/></linearGradient></defs>
+    <div class="bg-grid"><svg viewBox="0 0 480 362" role="img" aria-label="${biopsy?tr('A needle takes clay directly from the kidney on the right of the board','Eine Nadel entnimmt Knete direkt aus der Niere rechts auf dem Brett'):tr('Training board with a heart, two kidneys and branching tubes','Übungsmodell mit Herz, zwei Nieren und verzweigten Schläuchen')}">
+<defs><linearGradient id="bg-board" x2="1" y2="1"><stop stop-color="#f6faf4"/><stop offset="1" stop-color="#dcece6"/></linearGradient><linearGradient id="bg-kidney" x2="1" y2="1"><stop stop-color="#edb697"/><stop offset="1" stop-color="#c78673"/></linearGradient></defs>
     <rect x="4" y="4" width="472" height="354" rx="18" fill="#f1f6f0"/><path d="M34 15 H446 L466 331 Q467 337 460 337 H20 Q13 337 14 331 Z" fill="url(#bg-board)" stroke="#a8c8bf" stroke-width="2"/>
     <g transform="translate(120 186)">${kidney}</g><g transform="translate(360 186) scale(-1 1)">${kidney}</g>
     <g transform="translate(-92 17)" stroke="#935951" stroke-width="2.5" stroke-linejoin="round"><path d="M215 58 Q209 46 218 36 L225 38 L224 50 L232 51 L234 28 L243 29 L244 48 L251 45 L259 34 L266 39 L259 54 Q279 66 267 86 Q258 103 239 114 Q215 105 207 86 Q200 69 215 58Z" fill="#db9688"/><path d="M213 64 Q232 55 248 66 M232 62 Q247 83 238 101" fill="none" stroke="#f3c8b6"/></g>
     <g fill="none" stroke-linecap="round"><path d="${tubes}" stroke="#729c98" stroke-width="17"/><path d="${tubes}" stroke="#d4eeeb" stroke-width="13"/><path d="${tubes}" stroke="#f2fbf8" stroke-width="7"/></g>
-<path data-shaft fill="none" stroke="#176d63" stroke-width="4" stroke-linecap="round"/><g data-tip><circle r="4" fill="#ebae53" stroke="#74552a"/></g></svg>`}
+${biopsy?`<path d="M370 199q2-9 10-8 9-2 12 6 3 8-4 12-10 5-17-1Z" fill="#eabd56" stroke="#ae8437" stroke-width="1.8"/>
+<g data-needle><g transform="rotate(-68) scale(.66)"><path d="M0 0l8-3h96v5H7Z" fill="#607981"/><path d="M10-1h89" stroke="#dae8e7" stroke-width="1.5"/><rect x="96" y="-7" width="44" height="14" rx="4" fill="#345e58"/><path d="M106-5v10m7-10v10m7-10v10" stroke="#83a6a0" stroke-width="2"/><path data-core d="M-10-2h13v5h-13q-3-2 0-5Z" fill="#e5b651" stroke="#997433" stroke-width="1"/></g></g>`:`<path data-shaft fill="none" stroke="#176d63" stroke-width="4" stroke-linecap="round"/><g data-tip><circle r="4" fill="#ebae53" stroke="#74552a"/></g>`}</svg>
     <ol class="bg-list">${steps.map(step=>'<li>'+step+'</li>').join('')}</ol></div></section>`;
     if(biopsy){
       const needle=this.querySelector('[data-needle]');
@@ -72,7 +51,7 @@ class BoardGuide extends HTMLElement {
       const smooth=value=>{const x=Math.max(0,Math.min(1,value));return x*x*(3-2*x);};
       const draw=t=>{
         const offset=82-35*smooth((t-1.6)/2.3)-47*smooth((t-4.4)/2.1)+82*smooth((t-7.5)/2.8);
-        needle.setAttribute('transform',`translate(${258+offset*.848} ${269-offset*.53})`);
+        needle.setAttribute('transform',`translate(${381+offset*.3746} ${201-offset*.9272})`);
         sample.setAttribute('visibility',t>=7.8?'visible':'hidden');
         const step=t<1.6?0:t<4.4?1:t<7.5?2:3;
         items.forEach((item,index)=>item.setAttribute('aria-current',index===step?'step':'false'));
