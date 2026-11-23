@@ -13,10 +13,10 @@ class BoardGuide extends HTMLElement {
       right: trunk + ' C299 250 315 195 361 187'
     };
     const steps = biopsy ? [
-      tr('Find the clay in the kidney on the right. Trace its clear tube back to the lower opening.','Suche die Knete in der Niere rechts im Bild. Folge dem Schlauch bis zum unteren Eingang.'),
-      tr('With your guide, insert the closed biopsy tool at the lower opening. Follow the right branch inside the tube.','Führe das geschlossene Biopsiewerkzeug mit deiner Betreuungsperson unten ein. Folge im Schlauch der rechten Abzweigung.'),
-      tr('At the clay, open the tip and close it around a small piece.','Öffne die Spitze an der Knete und schließe sie um ein kleines Stück.'),
-      tr('Keep the tip closed. Draw the sample back through the same tube and release it at the entrance.','Halte die Spitze geschlossen. Ziehe die Probe durch denselben Schlauch zurück und lege sie am Eingang ab.')
+      tr('Find the yellow modelling clay in the cut face of the kidney model.', 'Suche die gelbe Knete in der Schnittfläche des Nierenmodells.'),
+      tr('With your guide, aim the sampling needle at the clay.', 'Richte die Probenadel gemeinsam mit deiner Betreuungsperson auf die Knete.'),
+      tr('Press the needle directly into the clay to collect a small sample.', 'Drücke die Nadel direkt in die Knete, um eine kleine Probe zu entnehmen.'),
+      tr('Pull the needle back and look at the small piece of clay you collected.', 'Ziehe die Nadel zurück und schau dir die kleine Knetprobe an.')
     ] : [
       tr('Choose an organ. Trace the route from the lower opening to your target.','Wähle ein Organ. Fahre den Weg vom unteren Eingang bis zum Ziel mit dem Finger nach.'),
       tr('Place the catheter tip in the opening. Advance a little at a time and watch the tip through the clear tube.','Setze die Katheterspitze unten ein. Schiebe sie langsam vor und beobachte sie im durchsichtigen Schlauch.'),
@@ -33,34 +33,49 @@ class BoardGuide extends HTMLElement {
     board-guide .bg-list{padding-left:1.65em}board-guide .bg-list li{padding:7px 10px;border-inline-start:3px solid transparent;line-height:1.5}
     board-guide .bg-list li[aria-current=step]{border-color:#c17c3e;background:#eaf3ee;color:#183f37}
     @media(max-width:720px){board-guide .bg-grid{grid-template-columns:1fr}}
-    </style><section class="lap-guide"><h2>${biopsy?tr('Collect a sample through the tube','Eine Probe durch den Schlauch entnehmen'):tr('Guide the catheter to an organ','Den Katheter zum Organ führen')}</h2>
+    </style><section class="lap-guide"><h2>${biopsy?tr('Take a clay sample from the kidney model','Eine Knetprobe aus dem Nierenmodell entnehmen'):tr('Guide the catheter to an organ','Den Katheter zum Organ führen')}</h2>
     <div class="bg-actions">${biopsy?'':Object.entries(names).map(([key,label])=>`<button type="button" data-target="${key}">${label}</button>`).join('')}<button type="button" data-play>↻ ${tr('Play again','Erneut abspielen')}</button></div>
-    <div class="bg-grid"><svg viewBox="0 0 480 362" role="img" aria-label="${tr('Training board with a heart, two kidneys and branching tubes','Übungsmodell mit Herz, zwei Nieren und verzweigten Schläuchen')}">
+    <div class="bg-grid">${biopsy?`<svg viewBox="0 0 480 362" role="img" aria-label="${tr('A needle takes a clay sample from a cutaway kidney model','Eine Nadel entnimmt eine Knetprobe aus einem Nierenmodell')}">
+<rect x="4" y="4" width="472" height="354" rx="18" fill="#edf3ec"/>
+<g transform="translate(24 9)"><path d="M167 47C103 36 61 85 60 162c-2 86 43 143 105 145 47 2 82-25 79-60-2-26-26-41-51-46-24-5-27-24-7-40 23-19 54-34 50-65-3-26-32-44-69-49Z" fill="#b57564" stroke="#965d51" stroke-width="3"/>
+<path d="M165 58C106 49 73 97 73 161c0 77 37 128 91 132 42 3 71-21 68-46-3-19-24-31-45-37-35-9-39-36-14-58 24-21 54-34 51-57-3-17-26-32-59-37Z" fill="#e1a189"/>
+<path d="M111 90q16-14 40-15l8 62ZM87 119l61 30-66 16q-1-24 5-46Zm-3 72 66-24-48 61q-14-14-18-37Zm29 56 47-55-11 82q-23-8-36-27Zm52 33 12-61 34 44q-16 17-46 17Z" fill="#c1806c"/>
+<ellipse cx="176" cy="249" rx="22" ry="19" fill="#e6bb55" stroke="#aa8339" stroke-width="2"/></g>
+<g data-needle><g transform="rotate(-32)"><path d="M0 0l8-3h96v5H7Z" fill="#607981"/><path d="M10-1h89" stroke="#dae8e7" stroke-width="1.5"/><rect x="96" y="-7" width="44" height="14" rx="4" fill="#345e58"/><path d="M106-5v10m7-10v10m7-10v10" stroke="#83a6a0" stroke-width="2"/><path data-core d="M-10-2h13v5h-13q-3-2 0-5Z" fill="#e5b651" stroke="#997433" stroke-width="1"/></g></g></svg>`:`<svg viewBox="0 0 480 362" role="img" aria-label="${tr('Training board with a heart, two kidneys and branching tubes','Übungsmodell mit Herz, zwei Nieren und verzweigten Schläuchen')}">
     <defs><linearGradient id="bg-board" x2="1" y2="1"><stop stop-color="#f6faf4"/><stop offset="1" stop-color="#dcece6"/></linearGradient><linearGradient id="bg-kidney" x2="1" y2="1"><stop stop-color="#edb697"/><stop offset="1" stop-color="#c78673"/></linearGradient></defs>
     <rect x="4" y="4" width="472" height="354" rx="18" fill="#f1f6f0"/><path d="M34 15 H446 L466 331 Q467 337 460 337 H20 Q13 337 14 331 Z" fill="url(#bg-board)" stroke="#a8c8bf" stroke-width="2"/>
     <g transform="translate(120 186)">${kidney}</g><g transform="translate(360 186) scale(-1 1)">${kidney}</g>
     <g transform="translate(-92 17)" stroke="#935951" stroke-width="2.5" stroke-linejoin="round"><path d="M215 58 Q209 46 218 36 L225 38 L224 50 L232 51 L234 28 L243 29 L244 48 L251 45 L259 34 L266 39 L259 54 Q279 66 267 86 Q258 103 239 114 Q215 105 207 86 Q200 69 215 58Z" fill="#db9688"/><path d="M213 64 Q232 55 248 66 M232 62 Q247 83 238 101" fill="none" stroke="#f3c8b6"/></g>
     <g fill="none" stroke-linecap="round"><path d="${tubes}" stroke="#729c98" stroke-width="17"/><path d="${tubes}" stroke="#d4eeeb" stroke-width="13"/><path d="${tubes}" stroke="#f2fbf8" stroke-width="7"/></g>
-    ${biopsy?'<path d="M358 181 Q362 174 369 179 Q377 176 378 185 Q381 193 372 196 Q362 199 357 192Z" fill="#c97485" stroke="#93485e" stroke-width="2"/>':''}
-    <path data-shaft fill="none" stroke="${biopsy?'#506b77':'#176d63'}" stroke-width="4" stroke-linecap="round"/>
-    <g data-tip>${biopsy?'<path data-jaws fill="none" stroke="#294f5a" stroke-width="2.5" stroke-linecap="round"/>':'<circle r="4" fill="#ebae53" stroke="#74552a"/>'}</g>
-    <circle data-piece r="3.8" fill="#f5aa6b" stroke="#895343" stroke-width="1.4"/>${biopsy?`<g data-lens opacity="0" aria-hidden="true">
-<path d="M370 174 L393 135" stroke="#61877f" stroke-width="2" stroke-dasharray="3 4"/>
-<path d="M440 128 L457 145" stroke="#315f59" stroke-width="8" stroke-linecap="round"/>
-<circle cx="414" cy="97" r="43" fill="#fffaf1" stroke="#366962" stroke-width="4"/>
-<path d="M373 100 H400" stroke="#78939a" stroke-width="6"/>
-<path d="M427 86 Q431 79 438 82 Q450 85 447 98 Q448 110 434 112 Q425 113 425 104" fill="#c97485"/>
-<g data-grip fill="#a5c1c2" stroke="#31545d" stroke-width="2" stroke-linejoin="round">
-<path data-upper d="M399 100 Q407 95 423 95 Q424 99 418 99 L401 102Z"/>
-<path data-lower d="M399 100 Q407 105 423 105 Q424 101 418 101 L401 98Z"/>
-<circle cx="400" cy="100" r="3" fill="#e5efeb"/></g>
-<circle data-chip cx="422" cy="100" r="4.3" fill="#f5aa6b" stroke="#895343" stroke-width="1.3"/></g>`:''}</svg>
+<path data-shaft fill="none" stroke="#176d63" stroke-width="4" stroke-linecap="round"/><g data-tip><circle r="4" fill="#ebae53" stroke="#74552a"/></g></svg>`}
     <ol class="bg-list">${steps.map(step=>'<li>'+step+'</li>').join('')}</ol></div></section>`;
-    const shaft = this.querySelector('[data-shaft]'), tip = this.querySelector('[data-tip]'), piece = this.querySelector('[data-piece]');
-    const lens = this.querySelector('[data-lens]');
-    const upperJaw = lens?.querySelector('[data-upper]'), lowerJaw = lens?.querySelector('[data-lower]');
-    const grip = lens?.querySelector('[data-grip]'), chip = lens?.querySelector('[data-chip]');
-    let target = biopsy ? 'right' : 'heart';
+    if(biopsy){
+      const needle=this.querySelector('[data-needle]');
+      const sample=this.querySelector('[data-core]');
+      const items=this.querySelectorAll('li');
+      const smooth=value=>{const x=Math.max(0,Math.min(1,value));return x*x*(3-2*x);};
+      const draw=t=>{
+        const offset=109-62*smooth((t-1.6)/2.3)-47*smooth((t-4.4)/2.1)+105*smooth((t-7.5)/2.8);
+        needle.setAttribute('transform',`translate(${200+offset*.848} ${258-offset*.53})`);
+        sample.setAttribute('visibility',t>=7.8?'visible':'hidden');
+        const step=t<1.6?0:t<4.4?1:t<7.5?2:3;
+        items.forEach((item,index)=>item.setAttribute('aria-current',index===step?'step':'false'));
+      };
+      const play=()=>{
+        cancelAnimationFrame(this.frame);
+        this.observer?.disconnect();
+        const start=performance.now();
+        const tick=now=>{const t=(now-start)/1000;draw(t);if(t<10.5)this.frame=requestAnimationFrame(tick);};
+        tick(start);
+      };
+      draw(0);
+      this.querySelector('[data-play]').onclick=play;
+      this.observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))play();});
+      this.observer.observe(this);
+      return;
+    }
+    const shaft=this.querySelector('[data-shaft]'), tip=this.querySelector('[data-tip]');
+    let target = 'heart';
     const play = () => {
       cancelAnimationFrame(this.frame);
       this.querySelectorAll('[data-target]').forEach(button=>button.setAttribute('aria-pressed', button.dataset.target===target));
@@ -71,29 +86,14 @@ class BoardGuide extends HTMLElement {
       const clamp=x=>Math.max(0,Math.min(1,x));
       const render = now => {
         const elapsed=(now-start)/1000;
-        const t=biopsy && elapsed>6.9
-          ? (elapsed<10.9 ? 0.60+(elapsed-6.9)*0.13/4 : clamp(0.73+(elapsed-10.9)/11.5))
-          : clamp(elapsed/11.5);
+        const t=clamp(elapsed/11.5);
         const progress=t<0.60?clamp((t-0.08)/0.52):1-clamp((t-0.73)/0.25);
         const distance=progress*length;
         const p=shaft.getPointAtLength(distance);
         const a=shaft.getPointAtLength(Math.max(0,distance-1)), b=shaft.getPointAtLength(Math.min(length,distance+1));
         tip.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI})`);
         shaft.style.strokeDashoffset=length-distance;
-        if(biopsy){
-          const spread=clamp((t-0.60)/0.022)*clamp((0.67-t)/0.022);
-          const withdraw=clamp((t-0.675)/0.055)*10;
-          lens.setAttribute('opacity',clamp((t-0.60)/0.009)*clamp((0.745-t)/0.015));
-          upperJaw.setAttribute('transform',`rotate(${-26*spread} 400 100)`);
-          lowerJaw.setAttribute('transform',`rotate(${26*spread} 400 100)`);
-          grip.setAttribute('transform',`translate(${-withdraw} 0)`);
-          chip.setAttribute('cx',422-withdraw);
-          const open=spread>0.3 || t>=0.98;
-          this.querySelector('[data-jaws]').setAttribute('d',open?'M-4 0 L4 -4 M-4 0 L4 4':'M-4 0 L4 -1 M-4 0 L4 1');
-          piece.setAttribute('cx',t<0.67?364:p.x);
-          piece.setAttribute('cy',t<0.67?187:p.y+(t>=0.98?6:0));
-        }else piece.style.display='none';
-        const step=t<0.08?0:t<(biopsy?0.59:0.35)?1:t<0.73?2:3;
+        const step=t<0.08?0:t<0.35?1:t<0.73?2:3;
         this.querySelectorAll('li').forEach((li,i)=>li.setAttribute('aria-current',i===step?'step':'false'));
         if(t<1)this.frame=requestAnimationFrame(render);
       };
@@ -109,7 +109,7 @@ class BoardGuide extends HTMLElement {
       if(entries.some(entry=>entry.isIntersecting)){this.observer.disconnect();play();}
     });
     shaft.setAttribute('d',paths[target]);shaft.style.strokeDasharray='0 9999';
-    tip.setAttribute('transform','translate(240 334)');piece.style.display=biopsy?'':'none';piece.setAttribute('cx',364);piece.setAttribute('cy',187);
+    tip.setAttribute('transform','translate(240 334)');
     this.querySelector('[data-target="heart"]')?.setAttribute('aria-pressed','true');
     this.observer.observe(this);
   }
